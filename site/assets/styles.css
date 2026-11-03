@@ -140,6 +140,11 @@ p{margin:0 0 1em}
 .browser__page b{display:block;border-radius:4px;background:var(--paper-2)}
 .browser__page b:first-child{grid-column:1/-1;background:var(--brand);opacity:.85}
 .browser__page b.a{background:var(--accent);opacity:.55}
+.browser--barberia{background:#13100D}
+.browser--barberia .browser__dots i{background:#F2E9D8}
+.browser--barberia .browser__page b{background:#2A241E}
+.browser--barberia .browser__page b:first-child{background:#C8A15A;opacity:1}
+.browser--barberia .browser__page b.a{background:#F2E9D8;opacity:.9}
 .sample__body{padding:1.25rem 1.25rem 1.5rem}
 .sample__body h3{font-size:1.25rem;margin-bottom:.35rem}
 .sample__body p{margin:0 0 .75rem;color:var(--muted);font-size:.9375rem}

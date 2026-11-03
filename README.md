@@ -38,6 +38,9 @@ Búscalos con `grep -rn "\[\[" site/` o ejecuta `node scripts/check.mjs` (lista 
 | `TODO_URL_MUESTRA_2` | index, `href` de la tarjeta «Taller» | URL de la web de muestra |
 
 La tarjeta «Restaurante» ya enlaza a la demo publicada en `site/muestras/restaurante/` (arrocería Arrossos del Marjal). Al poner cada URL de muestra, cambia `href="#TODO_URL_MUESTRA_n"` por la URL real y borra la etiqueta `<span class="todo">TODO: añadir URL</span>` de esa tarjeta.
+| `TODO_URL_MUESTRA_3` | index, `href` de la tarjeta «Clínica» | URL de la web de muestra |
+
+La tarjeta «Barbería» enlaza a `demos/barberia/` (demo en `demos/barberia`, rama `claude/jolly-fermi-g3ldm0`). La tarjeta «Taller» ya enlaza a `demos/taller/` (demo en `demos/taller`, que el workflow copia al sitio publicado; **fusiona antes la rama de esa demo**, o `check.mjs` fallará por enlace roto). Al poner cada URL de muestra restante, cambia `href="#TODO_URL_MUESTRA_n"` por la URL real y borra la etiqueta `<span class="todo">TODO: añadir URL</span>` de esa tarjeta.
 
 ### Valores que no son marcadores pero debes revisar
 
