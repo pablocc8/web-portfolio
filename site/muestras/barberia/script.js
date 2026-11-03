@@ -3,7 +3,7 @@
    Marca, precio, plazo y número de la sección «¿Quieres una web así?»
    ========================================================= */
 var CONFIG = {
-  marca: '[[TU_MARCA]]',
+  marca: '[[NOMBRE_COMERCIAL]]',
   precio: 395,
   plazo: '3 días laborables',
   whatsapp: '34623130633',

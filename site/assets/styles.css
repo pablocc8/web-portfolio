@@ -132,23 +132,11 @@ p{margin:0 0 1em}
 /* Muestras */
 .sample{display:flex;flex-direction:column;background:#fff;border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
 .sample:hover{color:var(--ink);transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--line)}
-.sample__shot{background:var(--paper-2);padding:1rem 1rem 0;border-bottom:2px solid var(--line)}
-.browser{background:#fff;border:2px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;height:150px;padding:10px;display:grid;grid-template-rows:auto 1fr;gap:10px}
-.browser__dots{display:flex;gap:5px}
-.browser__dots i{width:8px;height:8px;border-radius:50%;background:var(--line);opacity:.35}
-.browser__page{display:grid;gap:8px;grid-template-columns:1fr 1fr}
-.browser__page b{display:block;border-radius:4px;background:var(--paper-2)}
-.browser__page b:first-child{grid-column:1/-1;background:var(--brand);opacity:.85}
-.browser__page b.a{background:var(--accent);opacity:.55}
-.browser--barberia{background:#13100D}
-.browser--barberia .browser__dots i{background:#F2E9D8}
-.browser--barberia .browser__page b{background:#2A241E}
-.browser--barberia .browser__page b:first-child{background:#C8A15A;opacity:1}
-.browser--barberia .browser__page b.a{background:#F2E9D8;opacity:.9}
+.sample__shot{background:var(--paper-2);border-bottom:2px solid var(--line);aspect-ratio:8/5}
+.sample__shot img{display:block;width:100%;height:100%;object-fit:cover}
 .sample__body{padding:1.25rem 1.25rem 1.5rem}
 .sample__body h3{font-size:1.25rem;margin-bottom:.35rem}
 .sample__body p{margin:0 0 .75rem;color:var(--muted);font-size:.9375rem}
-.todo{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--accent);padding:.2rem .55rem;border-radius:4px}
 .sample__go{display:block;margin-top:.75rem;font-weight:700;color:var(--brand)}
 
 /* FAQ */

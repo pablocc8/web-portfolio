@@ -494,3 +494,8 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
   .marquee ul.dup{display:none}
   .marquee li{padding-block:8px}
 }
+
+/* Banner de demo con enlace de vuelta a la landing */
+.demo-bar{background:#0d0f10;color:#e8e8e4;font-size:.875rem;line-height:1.4;text-align:center;padding:.6rem 1rem}
+.demo-bar p{margin:0}
+.demo-bar a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:.2em;display:inline-block;padding:.35rem .25rem}
