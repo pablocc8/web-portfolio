@@ -204,8 +204,8 @@
     diasEl.innerHTML = ORDEN_SEMANA.map((d) => `
       <button type="button" role="tab" class="dia${D.MENU_DIA[d] ? "" : " dia--cerrado"}" id="tab-dia-${d}"
         data-dia="${d}" aria-controls="menuPanel" aria-selected="false" tabindex="-1"
-        aria-label="${capital(DIAS[d])}${d === hoy ? " (hoy)" : ""}${D.MENU_DIA[d] ? "" : ", cerrado"}">
-        <small>${d === hoy ? "Hoy" : ""}</small><span>${DIAS_CORTOS[d]}</span>
+        aria-label="${d === hoy ? "Hoy " : ""}${DIAS_CORTOS[d]}, ${DIAS[d]}${D.MENU_DIA[d] ? "" : ", cerrado"}">
+        <small>${d === hoy ? "Hoy" : ""}</small> <span>${DIAS_CORTOS[d]}</span>
       </button>`).join("");
 
     diasEl.addEventListener("click", (e) => {

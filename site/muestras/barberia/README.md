@@ -4,7 +4,7 @@ Web de muestra para un negocio **ficticio** (barbería de autor en Castelló de 
 
 - Ruta pública prevista: `/web-portfolio/muestras/barberia/`
 - Funciona igual abriendo `index.html` con doble clic (sin servidor, sin build, sin módulos, sin `fetch`).
-- Archivos: `index.html`, `styles.css`, `script.js`, `favicon.svg`, `fonts/`, `capturas/`, `LICENSE-lucide.txt`.
+- Archivos: `index.html`, `styles.css`, `script.js`, `favicon.svg`, `fonts/`, `LICENSE-lucide.txt`.
 
 ---
 
@@ -173,11 +173,8 @@ Todos llevan la etiqueta «Hueco para foto» y un atributo `data-photo` con la d
 
 Medido con un servidor local con gzip, como GitHub Pages. Sin compresión también da 100 / 100 / 100 / 60.
 
-### Capturas finales
-- `capturas/movil.png` — 375 px (DPR 2), página completa.
-- `capturas/escritorio.png` — 1440 px, página completa.
-
-Hechas con `?ahora=2026-11-06T11:30` (viernes por la mañana) para que se vea el estado «Abierto ahora». La barra flotante se oculta en la captura de página completa porque, al ser fija, aparecería a mitad de la imagen.
+### Capturas
+Las capturas de página completa (`movil.png` a 375 px y `escritorio.png` a 1440 px, unos 6 MB) se eliminaron del repositorio para no publicarlas con la web: ninguna página las usa. La miniatura de la landing está en `site/assets/muestras/barberia.webp`. Para regenerarlas, abre la demo con `?ahora=2026-11-06T11:30` (viernes por la mañana, estado «Abierto ahora») y haz una captura de página completa; la barra flotante conviene ocultarla porque, al ser fija, aparecería a mitad de la imagen.
 
 ---
 

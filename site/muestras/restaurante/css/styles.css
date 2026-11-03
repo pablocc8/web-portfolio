@@ -25,8 +25,8 @@
   --tinta-suave: #5E4F45;
   --verde: #4F7A2E;
   --verde-claro: #E3EDD3;
-  --whatsapp: #1F8F4E;
-  --whatsapp-osc: #17733E;
+  --whatsapp: #187A41;
+  --whatsapp-osc: #125F33;
 
   --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
   --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -108,7 +108,7 @@ p { margin: 0; }
 .boton--arena { background: var(--arena); color: var(--tinta); }
 .boton--arena:hover { background: var(--blanco); }
 .boton--whatsapp { background: var(--whatsapp); color: #fff; box-shadow: 0 6px 0 -2px var(--whatsapp-osc); }
-.boton--whatsapp:hover { background: #22A058; }
+.boton--whatsapp:hover { background: #146B38; }
 .boton--peq { min-height: 40px; padding: .5rem 1.1rem; font-size: .95rem; box-shadow: none; }
 .boton--ancho { width: 100%; }
 
@@ -358,7 +358,7 @@ p { margin: 0; }
   font-family: var(--sans); font-style: normal;
 }
 .tag .icono { width: 1.05em; height: 1.05em; vertical-align: 0; }
-.tag--veg { background: var(--verde-claro); color: var(--verde); }
+.tag--veg { background: var(--verde-claro); color: #3E6323; }
 .tag--arroz { background: #FAE6BE; color: #7A4B05; }
 .tag--tiempo { background: var(--mar-claro); color: var(--mar-osc); }
 .tag--mini { padding: .28rem .42rem; font-size: .68rem; }
@@ -603,7 +603,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--m
 }
 .burbuja::before { content: ""; position: absolute; top: 0; right: -8px; width: 0; height: 0; border-style: solid; border-width: 0 0 10px 8px; border-color: transparent transparent transparent #D9FDD3; }
 .burbuja::after { content: attr(data-hora) " ✓✓"; position: absolute; right: .6rem; bottom: .3rem; font-size: .68rem; color: #667781; }
-.burbuja .pendiente { color: #8A8F93; font-style: italic; }
+.burbuja .pendiente { color: #5A6166; font-style: italic; }
 
 /* ---------- Visítanos ---------- */
 .visitanos { background: var(--tinta); color: var(--crema); padding: 5rem 0; }
