@@ -34,10 +34,9 @@ Búscalos con `grep -rn "\[\[" site/` o ejecuta `node scripts/check.mjs` (lista 
 | `[[MANTENIMIENTO_ALCANCE]]` | index, FAQ | Qué incluye exactamente el mantenimiento de 20 €/mes |
 | `[[DOMINIO_COSTE_Y_TITULARIDAD]]` | index, FAQ | Quién paga el dominio, cuánto cuesta al año y a nombre de quién queda |
 | `TODO_URL_MUESTRA_1` | index, `href` de la tarjeta «Peluquería» | URL de la web de muestra |
-| `TODO_URL_MUESTRA_2` | index, `href` de la tarjeta «Taller» | URL de la web de muestra |
 | `TODO_URL_MUESTRA_3` | index, `href` de la tarjeta «Clínica» | URL de la web de muestra |
 
-Al poner cada URL de muestra, cambia `href="#TODO_URL_MUESTRA_n"` por la URL real y borra la etiqueta `<span class="todo">TODO: añadir URL</span>` de esa tarjeta.
+La tarjeta «Taller» ya enlaza a `demos/taller/` (demo en `demos/taller`, que el workflow copia al sitio publicado; **fusiona antes la rama de esa demo**, o `check.mjs` fallará por enlace roto). Al poner cada URL de muestra restante, cambia `href="#TODO_URL_MUESTRA_n"` por la URL real y borra la etiqueta `<span class="todo">TODO: añadir URL</span>` de esa tarjeta.
 
 ### Valores que no son marcadores pero debes revisar
 
