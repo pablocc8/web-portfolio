@@ -9,6 +9,7 @@ site/                 ← lo que se publica
   privacidad.html     privacidad y cookies (RGPD / LOPDGDD / LSSI)
   404.html, robots.txt, sitemap.xml
   assets/             styles.css, main.js, favicon.svg, og.png
+  muestras/restaurante/   demo de arrocería enlazada desde la sección Muestras
 scripts/check.mjs     comprueba enlaces internos y lista marcadores pendientes
 .github/workflows/pages.yml   despliegue a GitHub Pages
 ```
@@ -35,9 +36,8 @@ Búscalos con `grep -rn "\[\[" site/` o ejecuta `node scripts/check.mjs` (lista 
 | `[[DOMINIO_COSTE_Y_TITULARIDAD]]` | index, FAQ | Quién paga el dominio, cuánto cuesta al año y a nombre de quién queda |
 | `TODO_URL_MUESTRA_1` | index, `href` de la tarjeta «Peluquería» | URL de la web de muestra |
 | `TODO_URL_MUESTRA_2` | index, `href` de la tarjeta «Taller» | URL de la web de muestra |
-| `TODO_URL_MUESTRA_3` | index, `href` de la tarjeta «Clínica» | URL de la web de muestra |
 
-Al poner cada URL de muestra, cambia `href="#TODO_URL_MUESTRA_n"` por la URL real y borra la etiqueta `<span class="todo">TODO: añadir URL</span>` de esa tarjeta.
+La tarjeta «Restaurante» ya enlaza a la demo publicada en `site/muestras/restaurante/` (arrocería Arrossos del Marjal). Al poner cada URL de muestra, cambia `href="#TODO_URL_MUESTRA_n"` por la URL real y borra la etiqueta `<span class="todo">TODO: añadir URL</span>` de esa tarjeta.
 
 ### Valores que no son marcadores pero debes revisar
 

@@ -3,6 +3,11 @@
    Mediterránea y luminosa: azafrán, terracota, azul mar y arena
    ========================================================== */
 
+/* Fuentes alojadas en local (SIL OFL 1.1, ver fonts/LICENSE-*.txt) */
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 400 800; font-display: swap; src: url("../fonts/fraunces-latin-normal.woff2") format("woff2"); }
+@font-face { font-family: "Fraunces"; font-style: italic; font-weight: 400 800; font-display: swap; src: url("../fonts/fraunces-latin-italic.woff2") format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("../fonts/dmsans-latin.woff2") format("woff2"); }
+
 :root {
   --azafran: #EBA537;
   --azafran-claro: #F8D58C;
@@ -633,6 +638,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--m
 .marca--pie .marca__icono { color: var(--azafran); width: 32px; height: 32px; }
 .marca--pie .marca__texto em { color: var(--azafran-claro); }
 .pie__demo { font-style: italic; }
+.pie__demo a { color: var(--azafran-claro); font-style: normal; font-weight: 600; margin-left: .25rem; }
 
 /* ---------- CTA móvil ---------- */
 .cta-movil {
