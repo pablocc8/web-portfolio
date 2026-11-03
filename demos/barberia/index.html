@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Navaja &amp; Azahar · Barbería en Castelló de la Plana</title>
+<meta name="description" content="Barbería de autor en el centro de Castelló de la Plana: corte, barba con toalla caliente y afeitado clásico a navaja. Consulta precios y reserva por WhatsApp en un minuto.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#13100D">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>
+/* Fuentes: en web (http/https) se precargan las woff2; abriendo el archivo con doble clic (file://) se usan embebidas, porque el navegador bloquea las fuentes locales. */
+(function (d) {
+  var h = d.head;
+  if (location.protocol === 'file:') {
+    var s = d.createElement('script'); s.src = 'fonts/fuentes-local.js'; h.appendChild(s);
+    return;
+  }
+  var css = '';
+  [['Gloock', 'gloock-latin-400-normal', '400'], ['Manrope', 'manrope-latin-wght-normal', '200 800']].forEach(function (f) {
+    var l = d.createElement('link');
+    l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = 'fonts/' + f[1] + '.woff2';
+    h.appendChild(l);
+    css += '@font-face{font-family:"' + f[0] + '";src:url(fonts/' + f[1] + '.woff2) format("woff2");font-weight:' + f[2] + ';font-style:normal;font-display:swap}';
+  });
+  var st = d.createElement('style'); st.textContent = css; h.appendChild(st);
+})(document);
+</script>
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Navaja & Azahar",
+  "description": "Barbería de autor (negocio ficticio de demostración) en Castelló de la Plana: corte, barba con toalla caliente y afeitado clásico a navaja.",
+  "telephone": "+34 964 XX XX XX",
+  "email": "hola@navajayazahar.example",
+  "priceRange": "10 € – 38 €",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Efectivo, tarjeta, pago con móvil",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plaça de l'Exemple, 0 (dirección ficticia)",
+    "addressLocality": "Castelló de la Plana",
+    "addressRegion": "Castellón",
+    "postalCode": "12001",
+    "addressCountry": "ES"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "10:00", "closes": "14:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "16:30", "closes": "20:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "20:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corte clásico" }, "price": "16", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Barba con toalla caliente" }, "price": "15", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Afeitado clásico a navaja" }, "price": "20", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ritual Azahar" }, "price": "38", "priceCurrency": "EUR" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
+  <symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 17h16"/></symbol>
+  <symbol id="i-navigation" viewBox="0 0 24 24"><polygon points="3 11 22 2 13 21 11 13 3 11"/></symbol>
+  <symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/><path d="M6 14h2"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></symbol>
+  <symbol id="i-calendar-days" viewBox="0 0 24 24"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M8 13h.01"/><path d="M12 13h.01"/><path d="M16 13h.01"/><path d="M8 17h.01"/><path d="M12 17h.01"/><path d="M16 17h.01"/></symbol>
+  <symbol id="i-steam" viewBox="0 0 24 24"><path d="M8 9c1.5-2-1.5-3 0-5"/><path d="M12 9c1.5-2-1.5-3 0-5"/><path d="M16 9c1.5-2-1.5-3 0-5"/><rect x="3" y="12" width="18" height="8" rx="2"/><path d="M3 16h18"/></symbol>
+  <symbol id="i-blossom" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><ellipse cx="12" cy="6.4" rx="2.6" ry="4.4"/><ellipse cx="12" cy="6.4" rx="2.6" ry="4.4" transform="rotate(72 12 12)"/><ellipse cx="12" cy="6.4" rx="2.6" ry="4.4" transform="rotate(144 12 12)"/><ellipse cx="12" cy="6.4" rx="2.6" ry="4.4" transform="rotate(216 12 12)"/><ellipse cx="12" cy="6.4" rx="2.6" ry="4.4" transform="rotate(288 12 12)"/></g><circle cx="12" cy="12" r="2.3" fill="#13100D"/></symbol>
+</svg>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="demo-bar" role="note">
+  <p>Ejemplo de diseño con un negocio ficticio <span aria-hidden="true">·</span> Creado por <a href="../../" data-cfg="marca">[[TU_MARCA]]</a></p>
+</div>
+
+<header class="site-header" id="cabecera">
+  <div class="wrap header-inner">
+    <a class="brand" href="#inicio" aria-label="Navaja &amp; Azahar, volver al inicio">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width=".6" opacity=".55"/>
+        <path d="M14.5 33.5 31 17" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M31 17c1.6-1.6 3.6-2.2 4.6-1.2s.4 3-1.2 4.6L22.6 32.2c-.6.6-1.5.6-2.1 0l-.4-.4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        <g transform="translate(17 17)" fill="#F2E9D8"><ellipse cx="0" cy="-3.6" rx="1.7" ry="3"/><ellipse cx="0" cy="-3.6" rx="1.7" ry="3" transform="rotate(72)"/><ellipse cx="0" cy="-3.6" rx="1.7" ry="3" transform="rotate(144)"/><ellipse cx="0" cy="-3.6" rx="1.7" ry="3" transform="rotate(216)"/><ellipse cx="0" cy="-3.6" rx="1.7" ry="3" transform="rotate(288)"/><circle r="1.3" fill="#C8A15A"/></g>
+      </svg>
+      <span class="brand-name">Navaja <span class="amp">&amp;</span> Azahar</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Principal">
+      <ul>
+        <li><a href="#servicios">Carta</a></li>
+        <li><a href="#ritual">El ritual</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#visita">Horario</a></li>
+      </ul>
+    </nav>
+
+    <p class="status status--pill" data-status aria-live="polite"><span class="status-dot" aria-hidden="true"></span><span class="status-text">Mar–Sáb · con cita</span></p>
+
+    <a class="btn btn--brass btn--sm header-cta" href="#reserva">Reservar cita</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-movil">
+      <span class="menu-toggle-label">Menú</span>
+      <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="menu-movil" hidden>
+  <nav aria-label="Menú móvil">
+    <ol>
+      <li><a href="#servicios"><span>01</span>Carta y precios</a></li>
+      <li><a href="#ritual"><span>02</span>El ritual</a></li>
+      <li><a href="#equipo"><span>03</span>Equipo</a></li>
+      <li><a href="#reserva"><span>04</span>Reservar</a></li>
+      <li><a href="#visita"><span>05</span>Horario y dirección</a></li>
+    </ol>
+  </nav>
+  <div class="mobile-menu-foot">
+    <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-text">Mar–Sáb · con cita</span></p>
+    <button class="btn btn--ghost" type="button" data-demo="call"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>964 XX XX XX</button>
+  </div>
+</div>
+
+<main id="contenido">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span><span>Barbería<span class="hide-sm"> de autor</span> · Castelló de la Plana</span></p>
+        <h1 id="hero-title" class="hero-title">
+          <span class="line">Oficio de navaja,</span>
+          <span class="line line--accent">alma de azahar.</span>
+        </h1>
+        <p class="hero-lead">Corte, barba con toalla caliente y afeitado clásico a navaja en pleno centro de Castelló. Eliges servicio, día y franja, y te confirmamos por WhatsApp.</p>
+        <div class="hero-actions">
+          <a class="btn btn--brass btn--lg" href="#reserva">
+            <svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg>
+            Reservar por WhatsApp
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </a>
+          <a class="btn btn--line btn--lg" href="#servicios">Ver carta y precios</a>
+        </div>
+        <div class="hero-meta">
+          <p class="status status--hero" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-text">Mar–Sáb · con cita</span></p>
+          <p class="hero-place"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Centro de Castelló · a pie de calle</p>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="arch">
+          <svg class="art-layer art-rings" viewBox="0 0 420 520" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="#C8A15A" stroke-opacity=".16">
+              <circle cx="210" cy="250" r="150"/>
+              <circle cx="210" cy="250" r="118" stroke-dasharray="2 6"/>
+            </g>
+
+          </svg>
+          <svg class="art-layer art-base" viewBox="0 0 420 520" role="img" aria-labelledby="razor-title">
+            <title id="razor-title">Ilustración: navaja de barbero abierta junto a una rama de azahar con una naranja</title>
+            <defs>
+              <g id="petals">
+                <ellipse cx="0" cy="-12" rx="7.5" ry="12.5"/>
+                <ellipse cx="0" cy="-12" rx="7.5" ry="12.5" transform="rotate(72)"/>
+                <ellipse cx="0" cy="-12" rx="7.5" ry="12.5" transform="rotate(144)"/>
+                <ellipse cx="0" cy="-12" rx="7.5" ry="12.5" transform="rotate(216)"/>
+                <ellipse cx="0" cy="-12" rx="7.5" ry="12.5" transform="rotate(288)"/>
+              </g>
+              <g id="stamens" stroke="#C8A15A" stroke-width="1" stroke-linecap="round">
+                <path d="M0 0v-8M0 0l7.6-2.5M0 0l4.7 6.5M0 0l-4.7 6.5M0 0l-7.6-2.5M0 0l5-6M0 0l-5-6"/>
+              </g>
+              <g id="blossom">
+                <use href="#petals" fill="#F2E9D8" stroke="#C8A15A" stroke-width="1"/>
+                <use href="#stamens"/>
+                <circle r="3.6" fill="#DDBB7A"/>
+              </g>
+              <path id="leaf" d="M0 0C12-13 38-14 54 0 38 14 12 13 0 0Z"/>
+            </defs>
+            <!-- rama de azahar (detrás de la navaja) -->
+            <g class="sprig">
+              <path d="M392 512C340 452 300 410 248 384 196 358 150 330 112 268 90 232 82 200 86 160" fill="none" stroke="#C8A15A" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M178 344c-10 8-24 12-40 10M118 280c-16-2-28 4-38 14" fill="none" stroke="#C8A15A" stroke-width="1.6" stroke-linecap="round"/>
+              <g fill="#1F1A15" stroke="#C8A15A" stroke-width="1.3">
+                <use href="#leaf" transform="translate(300 420) rotate(-148)"/>
+                <use href="#leaf" transform="translate(262 392) rotate(28) scale(.9)"/>
+                <use href="#leaf" transform="translate(200 362) rotate(-158) scale(.95)"/>
+                <use href="#leaf" transform="translate(132 296) rotate(-28) scale(.8)"/>
+                <use href="#leaf" transform="translate(96 214) rotate(-122) scale(.75)"/>
+              </g>
+              <g stroke="#C8A15A" stroke-width=".8" stroke-opacity=".7" fill="none">
+                <path d="M300 420l-44-28M262 392l44 24M200 362l-48-18M132 296l38-20M96 214l-22-34"/>
+              </g>
+              <circle cx="128" cy="358" r="21" fill="#E38B3C"/>
+              <path d="M117 348c4-5 10-7 16-6" fill="none" stroke="#F2E9D8" stroke-opacity=".55" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="128" cy="358" r="21" fill="none" stroke="#13100D" stroke-opacity=".25"/>
+              <use href="#blossom" transform="translate(86 156) rotate(12) scale(1.05)"/>
+              <use href="#blossom" transform="translate(72 300) rotate(-8) scale(.82)"/>
+              <use href="#blossom" transform="translate(344 470) rotate(30) scale(.9)"/>
+              <g fill="#F2E9D8" stroke="#C8A15A" stroke-width="1">
+                <path d="M118 236c-6-10-4-22 4-26 8 4 10 16 4 26z"/>
+                <path d="M236 384c-2-11 4-21 13-22 5 7 3 19-6 24z"/>
+              </g>
+            </g>
+
+          </svg>
+          <svg class="art-layer art-blade" viewBox="0 0 420 520" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F4ECDD"/>
+                <stop offset=".55" stop-color="#CFC4B0"/>
+                <stop offset="1" stop-color="#8F8572"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(232 300) rotate(132) scale(.9)">
+              <g transform="rotate(-22)">
+                <g>
+                  <path d="M-8 -7L30 -8l3 -3 3 3 3 -3 3 3L232 -11Q246 -11 246 2L244 28Q243 34 236 34C170 36 92 33 54 22Q42 15 36 9L-8 7Q-14 0 -8 -7Z" transform="scale(-1 1)" fill="url(#steel)" stroke="#C8A15A" stroke-width="1.2" stroke-linejoin="round"/>
+                  <path d="M-48 15C-100 25-180 27-238 25" fill="none" stroke="#8F8572" stroke-width="1"/>
+                  <path d="M-46 -6.5L-232 -9" fill="none" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="1"/>
+                  <text x="-150" y="9" transform="rotate(180 -150 5)" fill="#7A6F5C" font-family="Gloock, Georgia, serif" font-size="11" letter-spacing="2" text-anchor="middle">CASTELLÓ</text>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <svg class="art-layer art-handle" viewBox="0 0 420 520" aria-hidden="true" focusable="false">
+            <g transform="translate(232 300) rotate(132) scale(.9)">
+              <g class="razor-handle">
+                <path d="M-10 -14C60 -20 220 -22 290 -12Q306 0 290 12C220 22 60 20 -10 14Q-24 0 -10 -14Z" fill="#1E1915" stroke="#C8A15A" stroke-width="1.4"/>
+                <path d="M6 -7C70 -12 210 -13 276 -6M6 7C70 12 210 13 276 6" fill="none" stroke="#C8A15A" stroke-opacity=".45" stroke-width=".9"/>
+                <circle r="5.5" fill="#13100D" stroke="#C8A15A" stroke-width="1.4"/>
+                <circle r="1.8" fill="#DDBB7A"/>
+                <circle cx="282" r="4" fill="#13100D" stroke="#C8A15A" stroke-width="1.2"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="pole" aria-hidden="true"><span class="pole-cap"></span><span class="pole-tube"><span class="pole-stripes"></span></span><span class="pole-cap"></span></div>
+        <p class="hero-art-note" aria-hidden="true">Desde 2014 · Castelló</p>
+      </div>
+    </div>
+
+    <ul class="wrap hero-facts" aria-label="Lo esencial">
+      <li><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg><span><strong>Con cita, sin esperas.</strong> Tu hora es tuya.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-steam"/></svg><span><strong>Toalla caliente</strong> en cada servicio de barba.</span></li>
+      <li><svg class="icon" aria-hidden="true"><use href="#i-credit-card"/></svg><span><strong>Tarjeta, móvil o efectivo.</strong> Precios con IVA.</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ CINTA ============ -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Corte a tijera</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Degradado a navaja</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Toalla caliente</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Afeitado clásico</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Perfilado de barba</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Ritual Azahar</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Corte a tijera</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Degradado a navaja</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Toalla caliente</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Afeitado clásico</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Perfilado de barba</span><svg class="icon"><use href="#i-blossom"/></svg>
+      <span>Ritual Azahar</span><svg class="icon"><use href="#i-blossom"/></svg>
+    </div>
+  </div>
+
+  <!-- ============ CARTA ============ -->
+  <section class="section carta" id="servicios" aria-labelledby="carta-title">
+    <div class="wrap carta-grid">
+      <div class="carta-aside">
+        <p class="kicker reveal"><span>01</span>La carta</p>
+        <h2 id="carta-title" class="h2 reveal">Precios claros, tiempo reservado.</h2>
+        <p class="lead reveal">Cada servicio tiene su duración real en la agenda. Si pone 40 minutos, son 40 minutos solo para ti, sin nadie mirando el reloj.</p>
+        <figure class="photo-slot photo-slot--square reveal" data-photo="Detalle de herramientas sobre la encimera: navaja, brocha, tijeras y peine · 1:1">
+          <svg viewBox="0 0 400 400" role="img" aria-labelledby="tools-title">
+            <title id="tools-title">Ilustración: tijeras, peine, brocha y bol de espuma sobre la encimera</title>
+            <g fill="none" stroke="#C8A15A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <g transform="rotate(-14 150 96)">
+                <rect x="48" y="80" width="204" height="24" rx="5"/>
+                <path d="M60 104v26M70 104v26M80 104v26M90 104v26M100 104v26M110 104v26M120 104v26M130 104v26M140 104v26M150 104v18M160 104v18M170 104v18M180 104v18M190 104v18M200 104v18M210 104v18M220 104v18M230 104v18M240 104v18" stroke-width="1.2"/>
+              </g>
+              <g transform="translate(262 112) rotate(38)">
+                <g transform="rotate(-7)"><path d="M-2 6-7-8-2-116Q0-122 3-116L7-8Z" fill="#1F1A15"/><path d="M-1 8-15 44"/><circle cx="-21" cy="60" r="16" fill="#1F1A15"/></g>
+                <g transform="rotate(7)"><path d="M2 6 7-8 2-116Q0-122-3-116L-7-8Z" fill="#1F1A15"/><path d="M1 8 15 44"/><circle cx="21" cy="60" r="16" fill="#1F1A15"/></g>
+                <circle r="3.5" fill="#C8A15A"/>
+              </g>
+              <ellipse cx="140" cy="262" rx="84" ry="22"/>
+              <path d="M56 262c4 46 36 70 84 70s80-24 84-70"/>
+              <path d="M74 300c20 10 42 14 66 14"  stroke-opacity=".5"/>
+              <g fill="#F2E9D8" stroke="none" opacity=".92">
+                <circle cx="108" cy="254" r="11"/><circle cx="126" cy="246" r="14"/><circle cx="148" cy="250" r="12"/><circle cx="168" cy="256" r="10"/><circle cx="136" cy="262" r="10"/><circle cx="90" cy="262" r="7"/><circle cx="186" cy="264" r="6"/>
+              </g>
+              <path d="M282 240C268 214 270 180 290 166c12-8 28-8 40 0 20 14 22 48 8 74z" fill="#1F1A15"/>
+              <path d="M296 238c-6-20-6-42 4-62M310 238v-70M324 238c6-20 6-42-4-62" stroke-width="1" stroke-opacity=".55"/>
+              <path d="M284 240h52l-6 16q-6 10-2 28 6 24-8 34h-20q-14-10-8-34 4-18-2-28z" fill="#13100D"/>
+              <path d="M290 250h40" stroke-opacity=".6"/>
+              <path d="M286 334h48"/>
+              <path d="M30 352h340" stroke-opacity=".35"/>
+            </g>
+          </svg>
+          <figcaption><span class="slot-tag">Hueco para foto</span> Herramientas de la casa</figcaption>
+        </figure>
+        <p class="note reveal"><svg class="icon" aria-hidden="true"><use href="#i-credit-card"/></svg>Precios con IVA incluido. Tarjeta, pago con móvil o efectivo.</p>
+      </div>
+
+      <div class="carta-main">
+        <div class="filters reveal" role="group" aria-label="Filtrar la carta">
+          <button type="button" class="chip is-active" aria-pressed="true" data-filter="todo">Todo</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="cortes">Cortes</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="barba">Barba y afeitado</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="combos">Combos</button>
+          <button type="button" class="chip" aria-pressed="false" data-filter="extras">Extras</button>
+        </div>
+
+        <div class="menu-groups" id="carta-lista">
+          <section class="menu-group reveal" data-group="cortes" aria-labelledby="g-cortes">
+            <h3 class="group-title" id="g-cortes">Cortes</h3>
+            <ul class="svc-list">
+              <li class="svc" data-id="corte-clasico" data-name="Corte clásico" data-min="30" data-price="16">
+                <div class="svc-head"><h4>Corte clásico</h4><span class="leader" aria-hidden="true"></span><p class="price">16 €</p></div>
+                <p class="svc-desc">Tijera y máquina, lavado y peinado con producto. El de toda la vida, bien hecho.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>30 min</span><button type="button" class="svc-book" data-book="corte-clasico">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="degradado" data-name="Degradado a navaja" data-min="40" data-price="18">
+                <div class="svc-head"><h4>Degradado a navaja</h4><span class="leader" aria-hidden="true"></span><p class="price">18 €</p></div>
+                <p class="svc-desc">Fade limpio desde el cero hasta donde pidas, rematado a navaja en nuca y patillas.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>40 min</span><button type="button" class="svc-book" data-book="degradado">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="tijera" data-name="Corte a tijera" data-min="45" data-price="20">
+                <div class="svc-head"><h4>Corte a tijera</h4><span class="leader" aria-hidden="true"></span><p class="price">20 €</p></div>
+                <p class="svc-desc">Solo tijera, para pelo largo, rizado o con textura que necesita su tiempo.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>45 min</span><button type="button" class="svc-book" data-book="tijera">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="infantil" data-name="Corte infantil" data-min="25" data-price="12">
+                <div class="svc-head"><h4>Corte infantil</h4><span class="leader" aria-hidden="true"></span><p class="price">12 €</p></div>
+                <p class="svc-desc">Hasta 12 años. Con paciencia, sin dramas y con dibujos en la pantalla si hace falta.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>25 min</span><button type="button" class="svc-book" data-book="infantil">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="rapado" data-name="Rapado" data-min="15" data-price="10">
+                <div class="svc-head"><h4>Rapado</h4><span class="leader" aria-hidden="true"></span><p class="price">10 €</p></div>
+                <p class="svc-desc">Máquina a un solo número y contornos perfilados.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>15 min</span><button type="button" class="svc-book" data-book="rapado">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group reveal" data-group="barba" aria-labelledby="g-barba">
+            <h3 class="group-title" id="g-barba">Barba y afeitado</h3>
+            <ul class="svc-list">
+              <li class="svc" data-id="arreglo-barba" data-name="Arreglo de barba" data-min="20" data-price="11">
+                <div class="svc-head"><h4>Arreglo de barba</h4><span class="leader" aria-hidden="true"></span><p class="price">11 €</p></div>
+                <p class="svc-desc">Recorte, forma y perfilado a máquina. Rápido y preciso, para entre semana.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>20 min</span><button type="button" class="svc-book" data-book="arreglo-barba">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc svc--star" data-id="barba-toalla" data-name="Barba con toalla caliente" data-min="30" data-price="15">
+                <p class="svc-flag">La de la casa</p>
+                <div class="svc-head"><h4>Barba con toalla caliente</h4><span class="leader" aria-hidden="true"></span><p class="price">15 €</p></div>
+                <p class="svc-desc">Perfilado a navaja, toalla caliente, aceite de azahar y bálsamo frío.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>30 min</span><button type="button" class="svc-book" data-book="barba-toalla">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="afeitado" data-name="Afeitado clásico a navaja" data-min="40" data-price="20">
+                <div class="svc-head"><h4>Afeitado clásico a navaja</h4><span class="leader" aria-hidden="true"></span><p class="price">20 €</p></div>
+                <p class="svc-desc">Vapor, espuma a brocha y dos pasadas de navaja: a favor y a contrapelo.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>40 min</span><button type="button" class="svc-book" data-book="afeitado">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group reveal" data-group="combos" aria-labelledby="g-combos">
+            <h3 class="group-title" id="g-combos">Combos</h3>
+            <ul class="svc-list">
+              <li class="svc" data-id="corte-barba" data-name="Corte + barba" data-min="55" data-price="26">
+                <div class="svc-head"><h4>Corte + barba</h4><span class="leader" aria-hidden="true"></span><p class="price">26 €</p></div>
+                <p class="svc-desc">Corte clásico o degradado y barba con toalla caliente. El más pedido.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>55 min</span><button type="button" class="svc-book" data-book="corte-barba">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc svc--star" data-id="ritual" data-name="Ritual Azahar" data-min="80" data-price="38">
+                <p class="svc-flag">Para regalar</p>
+                <div class="svc-head"><h4>Ritual Azahar</h4><span class="leader" aria-hidden="true"></span><p class="price">38 €</p></div>
+                <p class="svc-desc">Corte, afeitado a navaja, mascarilla y masaje craneal. Hora y veinte para desconectar.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>80 min</span><button type="button" class="svc-book" data-book="ritual">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="padre-hijo" data-name="Padre e hijo" data-min="50" data-price="25">
+                <div class="svc-head"><h4>Padre e hijo</h4><span class="leader" aria-hidden="true"></span><p class="price">25 €</p></div>
+                <p class="svc-desc">Corte clásico y corte infantil en la misma cita, uno detrás de otro.</p>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>50 min</span><button type="button" class="svc-book" data-book="padre-hijo">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+            </ul>
+          </section>
+
+          <section class="menu-group reveal" data-group="extras" aria-labelledby="g-extras">
+            <h3 class="group-title" id="g-extras">Extras <span class="group-note">se suman a cualquier servicio</span></h3>
+            <ul class="svc-list">
+              <li class="svc" data-id="cejas" data-name="Cejas a navaja" data-min="10" data-price="5">
+                <div class="svc-head"><h4>Cejas a navaja</h4><span class="leader" aria-hidden="true"></span><p class="price">5 €</p></div>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>10 min</span><button type="button" class="svc-book" data-book="cejas">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="mascarilla" data-name="Mascarilla facial" data-min="15" data-price="8">
+                <div class="svc-head"><h4>Mascarilla facial</h4><span class="leader" aria-hidden="true"></span><p class="price">8 €</p></div>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>15 min</span><button type="button" class="svc-book" data-book="mascarilla">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+              <li class="svc" data-id="canas" data-name="Camuflaje de canas" data-min="20" data-price="12">
+                <div class="svc-head"><h4>Camuflaje de canas</h4><span class="leader" aria-hidden="true"></span><p class="price">12 €</p></div>
+                <div class="svc-foot"><span class="dur"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>20 min</span><button type="button" class="svc-book" data-book="canas">Reservar este<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RITUAL ============ -->
+  <section class="section ritual" id="ritual" aria-labelledby="ritual-title">
+    <div class="wrap ritual-grid">
+      <div class="ritual-head">
+        <p class="kicker reveal"><span>02</span>El ritual del afeitado</p>
+        <h2 id="ritual-title" class="ritual-title reveal"><span>Dos pasadas.</span> <span class="accent">Ni una más.</span></h2>
+      </div>
+
+      <figure class="photo-slot photo-slot--tall reveal" data-photo="El sillón de barbero junto a la ventana, luz de tarde · 4:5">
+        <svg viewBox="0 0 400 500" role="img" aria-labelledby="chair-title">
+          <title id="chair-title">Ilustración: sillón clásico de barbero frente a un espejo redondo</title>
+          <circle cx="200" cy="200" r="132" fill="#1E1915" stroke="#C8A15A" stroke-opacity=".5" stroke-width="1.4"/>
+          <circle cx="200" cy="200" r="120" fill="none" stroke="#C8A15A" stroke-opacity=".22"/>
+          <path d="M112 132c30-38 84-52 128-36" fill="none" stroke="#F2E9D8" stroke-opacity=".16" stroke-width="7" stroke-linecap="round"/>
+          <g fill="#1B1713" stroke="#C8A15A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M120 458q0-18 22-18h120q22 0 22 18z"/>
+            <rect x="190" y="380" width="24" height="60"/>
+            <path d="M214 418h34l10 8"/>
+            <path d="M282 362l36 66"/>
+            <rect x="300" y="428" width="70" height="11" rx="5.5"/>
+            <rect x="176" y="362" width="52" height="20" rx="4"/>
+            <path d="M138 150h98q16 0 14 16l-8 152H132l-8-152q-2-16 14-16z"/>
+            <path d="M112 318h178q16 0 16 16v14q0 14-16 14H112q-14 0-14-14v-14q0-16 14-16z"/>
+            <path d="M164 288v30M296 288v30"/>
+            <rect x="148" y="268" width="166" height="20" rx="10"/>
+            <path d="M188 124v26"/>
+            <rect x="150" y="94" width="76" height="30" rx="15"/>
+          </g>
+          <g fill="#C8A15A">
+            <circle cx="156" cy="184" r="2.2"/><circle cx="187" cy="184" r="2.2"/><circle cx="218" cy="184" r="2.2"/>
+            <circle cx="171" cy="212" r="2.2"/><circle cx="202" cy="212" r="2.2"/>
+            <circle cx="156" cy="240" r="2.2"/><circle cx="187" cy="240" r="2.2"/><circle cx="218" cy="240" r="2.2"/>
+          </g>
+          <path d="M30 470h340" stroke="#C8A15A" stroke-opacity=".35"/>
+        </svg>
+        <figcaption><span class="slot-tag">Hueco para foto</span> El sillón, junto a la ventana</figcaption>
+      </figure>
+
+      <ol class="steps">
+        <li class="step reveal"><span class="step-n">01</span><div><h3>Vapor y toalla caliente</h3><p>Abre el poro y ablanda la barba. Tres minutos que lo cambian todo.</p></div></li>
+        <li class="step reveal"><span class="step-n">02</span><div><h3>Aceite y espuma a brocha</h3><p>Aceite con esencia de azahar, de aquí, y espuma montada al momento en el bol.</p></div></li>
+        <li class="step reveal"><span class="step-n">03</span><div><h3>Navaja, a favor y a contrapelo</h3><p>Hoja nueva para cada cliente. Una pasada a favor, otra a contrapelo. Sin irritación.</p></div></li>
+        <li class="step reveal"><span class="step-n">04</span><div><h3>Bálsamo frío y listo</h3><p>Cierra, calma y huele a limpio. Sales a la calle como recién estrenado.</p></div></li>
+      </ol>
+
+      <div class="ritual-cta reveal">
+        <p>Afeitado clásico <strong>40 min · 20 €</strong></p>
+        <button type="button" class="btn btn--brass" data-book="afeitado">Reservar el ritual<svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EQUIPO ============ -->
+  <section class="section equipo" id="equipo" aria-labelledby="equipo-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker reveal"><span>03</span>El equipo</p>
+        <h2 id="equipo-title" class="h2 reveal">Tres barberos, una regla: <span class="accent">sin prisas.</span></h2>
+        <p class="lead reveal">Elige con quién quieres sentarte o déjalo en nuestras manos. Los tres hacen de todo; cada uno tiene su debilidad.</p>
+      </div>
+
+      <ul class="team">
+        <li class="barber reveal">
+          <div class="portrait">
+            <svg viewBox="0 0 240 280" role="img" aria-labelledby="p-toni">
+              <title id="p-toni">Ilustración de Toni: tupé canoso, barba poblada y gafas redondas</title>
+              <circle cx="120" cy="124" r="92" fill="#2E2721" stroke="#C8A15A" stroke-opacity=".55" stroke-width="1.4"/>
+              <circle cx="120" cy="124" r="84" fill="none" stroke="#C8A15A" stroke-opacity=".2"/>
+              <path d="M18 280c4-50 46-76 102-76s98 26 102 76z" fill="#2A241E"/>
+              <path d="M84 214l36 66 36-66" fill="#F2E9D8"/>
+              <path d="M96 210l24 70 24-70" fill="#2A241E"/>
+              <path d="M70 226v54M170 226v54" stroke="#C8A15A" stroke-width="3"/>
+              <path d="M102 168v42q18 12 36 0v-42z" fill="#A87B58"/>
+              <ellipse cx="80" cy="132" rx="8" ry="12" fill="#A87B58"/>
+              <ellipse cx="160" cy="132" rx="8" ry="12" fill="#A87B58"/>
+              <ellipse cx="120" cy="126" rx="40" ry="50" fill="#B98A64"/>
+              <path d="M80 128c0 52 18 78 40 78s40-26 40-78c-6 18-16 30-40 30s-34-12-40-30z" fill="#D9D1C3"/>
+              <path d="M104 160q16-8 32 0-6 8-16 8t-16-8z" fill="#C9C0B0"/>
+              <path d="M78 122c-6-42 16-66 46-66 32-2 50 22 42 60-6-18-18-28-38-28-22 0-40 8-50 34z" fill="#D9D1C3"/>
+              <path d="M96 70c18-14 46-14 64 4" fill="none" stroke="#F2E9D8" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/>
+              <g fill="none" stroke="#13100D" stroke-width="3"><circle cx="104" cy="128" r="11"/><circle cx="136" cy="128" r="11"/><path d="M115 128h10M93 126l-12-3M147 126l12-3"/></g>
+            </svg>
+          </div>
+          <div class="barber-body">
+            <p class="barber-role">Fundador · navaja y barba</p>
+            <h3>Toni</h3>
+            <p>Dieciocho años afeitando en Castelló. Si quieres una barba que aguante dos semanas en forma, es tu barbero.</p>
+            <ul class="tags"><li>Afeitado clásico</li><li>Barba larga</li></ul>
+            <button type="button" class="link-btn" data-barber="Toni">Reservar con Toni<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          </div>
+        </li>
+
+        <li class="barber reveal">
+          <div class="portrait">
+            <svg viewBox="0 0 240 280" role="img" aria-labelledby="p-lucia">
+              <title id="p-lucia">Ilustración de Lucía: moño alto, lateral rapado y aro dorado</title>
+              <circle cx="120" cy="124" r="92" fill="#2E2721" stroke="#C8A15A" stroke-opacity=".55" stroke-width="1.4"/>
+              <circle cx="120" cy="124" r="84" fill="none" stroke="#C8A15A" stroke-opacity=".2"/>
+              <path d="M18 280c4-50 46-76 102-76s98 26 102 76z" fill="#13100D" stroke="#C8A15A" stroke-opacity=".35"/>
+              <path d="M60 236c18 22 40 30 60 30s42-8 60-30" fill="none" stroke="#C8A15A" stroke-width="2.4"/>
+              <path d="M104 168v40q16 12 32 0v-40z" fill="#D6A983"/>
+              <ellipse cx="81" cy="134" rx="7" ry="11" fill="#D6A983"/>
+              <ellipse cx="159" cy="134" rx="7" ry="11" fill="#D6A983"/>
+              <ellipse cx="120" cy="128" rx="38" ry="48" fill="#E3B992"/>
+              <circle cx="120" cy="58" r="20" fill="#6B3A26"/>
+              <path d="M94 62q26-6 52 0" stroke="#C8A15A" stroke-width="2.4" fill="none"/>
+              <path d="M82 128c-4-38 14-58 40-58 28 0 42 20 38 58-6-22-18-34-38-34-18 2-32 14-40 34z" fill="#6B3A26"/>
+              <path d="M96 84c10-8 30-10 44-2" fill="none" stroke="#9A5A3C" stroke-width="2" stroke-linecap="round"/>
+              <path d="M83 118c-3 8-3 16-1 24M87 108c-3 10-4 20-2 30" stroke="#8B5A40" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <circle cx="81" cy="154" r="7" fill="none" stroke="#DDBB7A" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="barber-body">
+            <p class="barber-role">Degradados y diseño</p>
+            <h3>Lucía</h3>
+            <p>Se formó en Valencia y vuelve cada año a aprender algo nuevo. Tráele una foto: si se puede hacer, lo clava.</p>
+            <ul class="tags"><li>Fade</li><li>Texturizado</li></ul>
+            <button type="button" class="link-btn" data-barber="Lucía">Reservar con Lucía<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          </div>
+        </li>
+
+        <li class="barber reveal">
+          <div class="portrait">
+            <svg viewBox="0 0 240 280" role="img" aria-labelledby="p-marc">
+              <title id="p-marc">Ilustración de Marc: pelo rizado, barba corta y camisa de rayas</title>
+              <defs><pattern id="stripes" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#F2E9D8"/><rect width="4" height="10" fill="#2A241E"/></pattern></defs>
+              <circle cx="120" cy="124" r="92" fill="#2E2721" stroke="#C8A15A" stroke-opacity=".55" stroke-width="1.4"/>
+              <circle cx="120" cy="124" r="84" fill="none" stroke="#C8A15A" stroke-opacity=".2"/>
+              <path d="M18 280c4-50 46-76 102-76s98 26 102 76z" fill="url(#stripes)"/>
+              <path d="M98 206l22 26 22-26" fill="#13100D"/>
+              <path d="M102 168v42q18 12 36 0v-42z" fill="#7E5639"/>
+              <ellipse cx="80" cy="132" rx="8" ry="12" fill="#7E5639"/>
+              <ellipse cx="160" cy="132" rx="8" ry="12" fill="#7E5639"/>
+              <ellipse cx="120" cy="128" rx="40" ry="50" fill="#8D6145"/>
+              <path d="M80 132c2 40 18 64 40 64s38-24 40-64c-6 14-18 22-40 22s-34-8-40-22z" fill="#3A271B"/>
+              <g fill="#3A271B">
+                <circle cx="86" cy="104" r="13"/><circle cx="96" cy="86" r="14"/><circle cx="114" cy="76" r="15"/><circle cx="134" cy="76" r="15"/><circle cx="150" cy="88" r="14"/><circle cx="157" cy="106" r="12"/><circle cx="120" cy="92" r="16"/>
+              </g>
+              <g fill="none" stroke="#5E4232" stroke-width="1.6"><path d="M90 84a8 8 0 0 1 10-4M118 68a8 8 0 0 1 10 0M144 80a8 8 0 0 1 8 6"/></g>
+            </svg>
+          </div>
+          <div class="barber-body">
+            <p class="barber-role">Tijera y peques</p>
+            <h3>Marc</h3>
+            <p>Tijera fina para pelo largo y rizado, y la paciencia que necesitan los que se sientan por primera vez en el sillón.</p>
+            <ul class="tags"><li>Tijera</li><li>Infantil</li></ul>
+            <button type="button" class="link-btn" data-barber="Marc">Reservar con Marc<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ RESERVA ============ -->
+  <section class="section reserva" id="reserva" aria-labelledby="reserva-title">
+    <div class="wrap reserva-grid">
+      <div class="reserva-intro">
+        <p class="kicker reveal"><span>04</span>Reserva</p>
+        <h2 id="reserva-title" class="h2 reveal">Tu cita en cuatro toques.</h2>
+        <p class="lead reveal">Elige servicio, barbero, día y franja. Te preparamos el mensaje de WhatsApp y te confirmamos la hora exacta enseguida.</p>
+      </div>
+
+      <form class="booking reveal" id="booking" novalidate>
+        <fieldset class="step-field">
+          <legend><span class="field-n">1</span>Servicio</legend>
+          <div class="select-wrap">
+            <label class="sr-only" for="f-servicio">Servicio</label>
+            <select id="f-servicio" name="servicio" required aria-describedby="err-servicio">
+              <option value="">Elige un servicio…</option>
+            </select>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </div>
+          <p class="field-error" id="err-servicio" hidden>Elige un servicio para continuar.</p>
+        </fieldset>
+
+        <fieldset class="step-field">
+          <legend><span class="field-n">2</span>Barbero</legend>
+          <div class="options options--barbers" id="opt-barbero">
+            <label class="opt"><input type="radio" name="barbero" value="Me da igual" checked><span>Me da igual</span></label>
+            <label class="opt"><input type="radio" name="barbero" value="Toni"><span>Toni</span></label>
+            <label class="opt"><input type="radio" name="barbero" value="Lucía"><span>Lucía</span></label>
+            <label class="opt"><input type="radio" name="barbero" value="Marc"><span>Marc</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="step-field">
+          <legend><span class="field-n">3</span>Día</legend>
+          <div class="days" id="opt-dia" aria-describedby="err-dia"></div>
+          <p class="field-error" id="err-dia" hidden>Elige un día.</p>
+        </fieldset>
+
+        <fieldset class="step-field">
+          <legend><span class="field-n">4</span>Franja horaria</legend>
+          <div class="options options--slots" id="opt-franja" aria-describedby="err-franja">
+            <p class="slots-empty">Primero elige un día.</p>
+          </div>
+          <p class="field-error" id="err-franja" hidden>Elige una franja horaria.</p>
+        </fieldset>
+
+        <div class="step-field step-field--name">
+          <label for="f-nombre">Tu nombre <span>(opcional)</span></label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="given-name" maxlength="40" placeholder="Para saber a quién esperamos">
+        </div>
+      </form>
+
+      <aside class="ticket reveal" aria-labelledby="ticket-title">
+        <div class="ticket-paper">
+          <p class="ticket-kicker">Navaja &amp; Azahar</p>
+          <h3 id="ticket-title" class="ticket-title">Tu cita</h3>
+          <dl class="ticket-rows">
+            <div><dt>Servicio</dt><dd data-t="servicio">—</dd></div>
+            <div><dt>Barbero</dt><dd data-t="barbero">Me da igual</dd></div>
+            <div><dt>Día</dt><dd data-t="dia">—</dd></div>
+            <div><dt>Franja</dt><dd data-t="franja">—</dd></div>
+          </dl>
+          <div class="ticket-total"><span data-t="duracion">Elige un servicio</span><strong data-t="precio">—</strong></div>
+        </div>
+        <div class="wa-preview">
+          <p class="wa-label"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg>Mensaje que se enviará</p>
+          <p class="wa-bubble" id="wa-msg" aria-live="polite">Hola, quería reservar una cita…</p>
+        </div>
+        <button type="submit" form="booking" class="btn btn--brass btn--lg btn--block" id="send-booking">
+          <svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg>
+          Enviar reserva por WhatsApp
+        </button>
+        <p class="ticket-help">Sin registros ni contraseñas. Si necesitas cambiarla, contesta al mismo chat.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ RESEÑAS ============ -->
+  <section class="section resenas" id="resenas" aria-labelledby="resenas-title">
+    <div class="wrap resenas-grid">
+      <div class="resenas-head">
+        <p class="sample-tag reveal">Reseñas de ejemplo</p>
+        <h2 id="resenas-title" class="h2 reveal">Lo que se oye en el sillón.</h2>
+      </div>
+      <figure class="quote quote--big reveal">
+        <blockquote><p>Fui por un arreglo de barba y salí entendiendo por qué la gente repite. Toni no tiene prisa y se nota en el resultado.</p></blockquote>
+        <figcaption>Javi <span>· cliente desde 2021</span></figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote><p>Llevo a mi hijo desde los seis años. Paciencia infinita y el corte le dura el mes entero.</p></blockquote>
+        <figcaption>Raquel</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote><p>Reservé un martes por la noche y el miércoles a las diez estaba en el sillón. Lucía clavó el degradado a la primera.</p></blockquote>
+        <figcaption>Adrián</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ VISITA ============ -->
+  <section class="section visita" id="visita" aria-labelledby="visita-title">
+    <div class="wrap visita-grid">
+      <div class="visita-info">
+        <p class="kicker reveal"><span>05</span>Horario y dirección</p>
+        <h2 id="visita-title" class="h2 reveal">En el centro, <span class="accent">a tu hora.</span></h2>
+
+        <div class="status-card reveal">
+          <p class="status status--big" data-status aria-live="polite"><span class="status-dot" aria-hidden="true"></span><span class="status-text">Mar–Sáb · con cita</span></p>
+          <p class="status-sub" data-now>Hora de Castelló</p>
+        </div>
+
+        <table class="hours reveal" id="horario">
+          <caption class="sr-only">Horario semanal</caption>
+          <tbody>
+            <tr data-day="1"><th scope="row">Lunes</th><td>Cerrado</td></tr>
+            <tr data-day="2"><th scope="row">Martes</th><td>10:00–14:00 · 16:30–20:30</td></tr>
+            <tr data-day="3"><th scope="row">Miércoles</th><td>10:00–14:00 · 16:30–20:30</td></tr>
+            <tr data-day="4"><th scope="row">Jueves</th><td>10:00–14:00 · 16:30–20:30</td></tr>
+            <tr data-day="5"><th scope="row">Viernes</th><td>10:00–20:30 <span class="hours-note">sin cerrar a mediodía</span></td></tr>
+            <tr data-day="6"><th scope="row">Sábado</th><td>09:00–14:00</td></tr>
+            <tr data-day="0"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody>
+        </table>
+        <p class="note reveal">En Magdalena abrimos también el lunes. Lo avisaremos aquí y en la puerta.</p>
+      </div>
+
+      <div class="visita-side">
+        <div class="map reveal">
+          <svg viewBox="0 0 600 420" role="img" aria-labelledby="map-title">
+            <title id="map-title">Mapa ilustrativo del centro con la ubicación aproximada de la barbería</title>
+            <rect width="600" height="420" fill="#1B1713"/>
+            <defs><pattern id="dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="#C8A15A" fill-opacity=".35"/></pattern></defs>
+            <g fill="#251F1A">
+              <rect x="10" y="10" width="100" height="90" rx="6"/><rect x="140" y="10" width="170" height="80" rx="6"/><rect x="345" y="10" width="100" height="55" rx="6"/><rect x="480" y="10" width="110" height="45" rx="6"/>
+              <rect x="10" y="140" width="110" height="55" rx="6"/><rect x="150" y="125" width="150" height="40" rx="6"/><rect x="350" y="95" width="110" height="130" rx="6"/><rect x="480" y="90" width="110" height="120" rx="6"/>
+              <rect x="10" y="230" width="120" height="55" rx="6"/><rect x="160" y="200" width="125" height="80" rx="6"/>
+              <rect x="10" y="320" width="130" height="90" rx="6"/><rect x="200" y="300" width="90" height="70" rx="6"/><rect x="200" y="395" width="90" height="25" rx="6"/>
+            </g>
+            <path d="M356 250l150-40 70 120-160 70z" fill="#1F241B"/>
+            <path d="M356 250l150-40 70 120-160 70z" fill="url(#dots)" stroke="#C8A15A" stroke-opacity=".3"/>
+            <g fill="none" stroke="#120F0C" stroke-linecap="round">
+              <path d="M-10 120 610 70" stroke-width="22"/>
+              <path d="M-10 300 610 230" stroke-width="16"/>
+              <path d="M120 -10 190 430" stroke-width="18"/>
+              <path d="M330 -10 300 430" stroke-width="14"/>
+              <path d="M460 -10 520 190" stroke-width="12"/>
+              <path d="M-10 210 300 175" stroke-width="10"/>
+              <path d="M190 380 610 330" stroke-width="10"/>
+            </g>
+            <g fill="none" stroke="#C8A15A" stroke-opacity=".22" stroke-dasharray="4 8">
+              <path d="M-10 120 610 70M-10 300 610 230M120 -10 190 430M330 -10 300 430"/>
+            </g>
+            <circle cx="316" cy="128" r="34" fill="#251F1A" stroke="#C8A15A" stroke-opacity=".45"/>
+            <g font-family="Manrope, system-ui, sans-serif" font-size="12" letter-spacing="2" fill="#B3A794">
+              <text x="316" y="182" text-anchor="middle">PLAÇA MAJOR</text>
+              <text x="470" y="322" text-anchor="middle">PARC RIBALTA</text>
+            </g>
+            <g class="map-pin" transform="translate(236 220)">
+              <path d="M0 6c-14-16-22-26-22-38a22 22 0 0 1 44 0c0 12-8 22-22 38z" fill="#C8A15A" transform="translate(0 -4)"/>
+              <circle cy="-36" r="7" fill="#13100D"/>
+            </g>
+            <text x="236" y="262" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="18" fill="#F2E9D8">Navaja &amp; Azahar</text>
+          </svg>
+          <span class="map-ping" aria-hidden="true"></span>
+          <p class="map-note">Mapa ilustrativo</p>
+        </div>
+
+        <address class="contact reveal">
+          <p class="contact-line"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg><span>Plaça de l'Exemple, 0 · 12001 Castelló de la Plana <em>(dirección ficticia)</em></span></p>
+          <p class="contact-line"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>964 XX XX XX</span></p>
+          <p class="contact-line"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>hola@navajayazahar.example</span></p>
+          <p class="contact-line"><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg><span>Parking público a 3 minutos. La primera media hora corre de nuestra cuenta.</span></p>
+        </address>
+        <div class="contact-actions reveal">
+          <button type="button" class="btn btn--brass" data-demo="whatsapp"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg>WhatsApp</button>
+          <button type="button" class="btn btn--line" data-demo="call"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Llamar</button>
+          <button type="button" class="btn btn--line" data-demo="maps"><svg class="icon" aria-hidden="true"><use href="#i-navigation"/></svg>Cómo llegar</button>
+        </div>
+
+      </div>
+
+      <figure class="photo-slot photo-slot--wide visita-photo reveal" data-photo="Fachada del local con el toldo y la puerta, desde la acera de enfrente · 3:2">
+        <svg viewBox="0 0 600 400" role="img" aria-labelledby="facade-title">
+          <title id="facade-title">Ilustración: fachada de la barbería con toldo a rayas, escaparate y un naranjo en maceta</title>
+          <g fill="none" stroke="#C8A15A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M70 360V70h460v290"/>
+            <path d="M70 110h460" stroke-opacity=".4"/>
+            <path d="M90 130h420l-20 50H110z" fill="#1B1713"/>
+            <path d="M132 130l-8 50M174 130l-4 50M216 130v50M258 130v50M300 130v50M342 130v50M384 130v50M426 130l4 50M468 130l8 50" stroke-opacity=".7"/>
+            <path d="M110 180q10.5 14 21 0t21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0 21 0"/>
+            <rect x="110" y="206" width="250" height="154" fill="#1E1915"/>
+            <path d="M130 226l40-14M130 246l70-24" stroke="#F2E9D8" stroke-opacity=".25"/>
+            <rect x="384" y="206" width="96" height="154" fill="#1E1915"/>
+            <rect x="398" y="222" width="68" height="84" stroke-opacity=".6"/>
+            <circle cx="468" cy="290" r="3" fill="#C8A15A"/>
+            <rect x="492" y="214" width="12" height="96" rx="6" fill="#13100D"/>
+            <path d="M492 228l12-8M492 244l12-8M492 260l12-8M492 276l12-8M492 292l12-8" stroke="#F2E9D8" stroke-opacity=".7"/>
+            <path d="M30 360h540" stroke-opacity=".5"/>
+          </g>
+          <text x="235" y="96" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="22" letter-spacing="3" fill="#F2E9D8">NAVAJA &amp; AZAHAR</text>
+          <text x="235" y="296" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="30" fill="#C8A15A" fill-opacity=".85">N&amp;A</text>
+          <text x="235" y="318" text-anchor="middle" font-family="Manrope, system-ui, sans-serif" font-size="10" letter-spacing="3" fill="#B3A794">BARBERÍA · DESDE 2014</text>
+          <g>
+            <path d="M548 360l-8-36h36l-8 36z" fill="#2A241E" stroke="#C8A15A" stroke-width="1.4"/>
+            <path d="M558 324v-40" stroke="#C8A15A" stroke-width="2"/>
+            <circle cx="558" cy="262" r="30" fill="#1F2A1C" stroke="#C8A15A" stroke-width="1.4"/>
+            <circle cx="546" cy="252" r="5" fill="#E38B3C"/><circle cx="568" cy="268" r="5" fill="#E38B3C"/><circle cx="560" cy="246" r="4.5" fill="#E38B3C"/>
+            <circle cx="550" cy="274" r="3" fill="#F2E9D8"/><circle cx="574" cy="250" r="3" fill="#F2E9D8"/>
+          </g>
+        </svg>
+        <figcaption><span class="slot-tag">Hueco para foto</span> La fachada, para que nos reconozcas</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="footer-name">Navaja <span class="amp">&amp;</span> Azahar</p>
+      <p>Barbería de autor en Castelló de la Plana desde 2014.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Pie de página">
+      <a href="#servicios">Carta</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#reserva">Reservar</a>
+      <a href="#visita">Horario</a>
+      <button type="button" class="link-plain" data-demo="legal">Aviso legal y privacidad</button>
+    </nav>
+    <p class="footer-legal">© <span data-year>2026</span> Navaja &amp; Azahar · Negocio ficticio creado como ejemplo de diseño.</p>
+  </div>
+</footer>
+
+<!-- ============ SECCIÓN DEL AUTOR (separada del negocio) ============ -->
+<section class="author" id="tu-web" aria-labelledby="author-title">
+  <div class="author-tear" aria-hidden="true"></div>
+  <div class="wrap author-grid">
+    <div class="author-copy">
+      <p class="author-kicker">Fin del ejemplo · Esto lo hace <span data-cfg="marca">[[TU_MARCA]]</span></p>
+      <h2 id="author-title" class="author-title">¿Quieres una web así para tu negocio?</h2>
+      <p class="author-lead">La carta con precios, el horario que se actualiza solo, la reserva por WhatsApp… Todo lo que acabas de tocar, diseñado a medida para tu negocio y tus clientes.</p>
+      <ul class="author-list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Diseño a medida</strong>, nada de plantillas.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Adaptada a móvil</strong>, que es donde te buscan.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Preparada para Google</strong>: rápida, con tus datos bien estructurados.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Contacto por WhatsApp</strong> en un toque, con el mensaje ya escrito.</span></li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Lista en <span data-cfg="plazo">3 días laborables</span></strong>.</span></li>
+      </ul>
+    </div>
+    <div class="author-offer">
+      <p class="offer-label">Pago único</p>
+      <p class="offer-price"><span data-cfg="precio">395</span><span class="offer-cur">€</span></p>
+      <p class="offer-sub">Lista en <span data-cfg="plazo">3 días laborables</span>. Sin cuotas mensuales de diseño.</p>
+      <a class="btn btn--ink btn--lg btn--block" data-cfg-wa href="https://wa.me/34623130633?text=Hola%2C%20he%20visto%20la%20web%20de%20ejemplo%20de%20barber%C3%ADa%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg>
+        Pedir la mía por WhatsApp
+        <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+      </a>
+      <p class="offer-note">Te contesto yo, sin compromiso. Me cuentas tu negocio y te digo cómo quedaría.</p>
+    </div>
+  </div>
+  <div class="wrap"><p class="author-foot">© <span data-year>2026</span> <span data-cfg="marca">[[TU_MARCA]]</span> · Webs a medida para negocios de la Comunitat Valenciana</p></div>
+</section>
+
+<!-- Barra de contacto flotante -->
+<aside class="dock" id="dock" aria-label="Contacto rápido">
+  <button type="button" class="dock-btn" data-demo="call"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span>Llamar</span></button>
+  <button type="button" class="dock-btn" data-demo="whatsapp"><svg class="icon" aria-hidden="true"><use href="#i-message-circle"/></svg><span>WhatsApp</span></button>
+  <a class="dock-btn dock-btn--main" href="#reserva"><svg class="icon" aria-hidden="true"><use href="#i-calendar-days"/></svg><span>Reservar cita</span></a>
+</aside>
+
+<!-- Aviso de demo -->
+<dialog class="notice" id="notice" aria-labelledby="notice-title" aria-describedby="notice-text">
+  <div class="notice-inner">
+    <p class="notice-kicker">Así funciona en tu web</p>
+    <h2 class="notice-title" id="notice-title">Esto es una demo</h2>
+    <p class="notice-text" id="notice-text"></p>
+    <div class="notice-msg" id="notice-msg" hidden></div>
+    <div class="notice-actions">
+      <button type="button" class="btn btn--brass" data-close>Entendido</button>
+      <a class="btn btn--line" href="#tu-web" data-close-link>Quiero una así</a>
+    </div>
+    <button type="button" class="notice-x" data-close aria-label="Cerrar aviso"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+  </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>

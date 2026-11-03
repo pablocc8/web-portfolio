@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pablocc8.github.io/web-portfolio/sitemap.xml
