@@ -2,7 +2,7 @@
 
 Web de muestra para un negocio **ficticio** (barbería de autor en Castelló de la Plana). Es una pieza de escaparate comercial: no representa a ningún negocio real.
 
-- Ruta pública prevista: `/web-portfolio/demos/barberia/`
+- Ruta pública prevista: `/web-portfolio/muestras/barberia/`
 - Funciona igual abriendo `index.html` con doble clic (sin servidor, sin build, sin módulos, sin `fetch`).
 - Archivos: `index.html`, `styles.css`, `script.js`, `favicon.svg`, `fonts/`, `capturas/`, `LICENSE-lucide.txt`.
 
@@ -66,7 +66,7 @@ Escala tipográfica fluida (`clamp`) con contraste fuerte: H1 de 2,9 rem (móvil
 
 | Sección | Qué demuestra al dueño del negocio |
 |---|---|
-| Banner fijo de demo | Honestidad: «Ejemplo de diseño con un negocio ficticio · Creado por [[TU_MARCA]]», enlace a `../../`. |
+| Banner fijo de demo | Honestidad: «Ejemplo de diseño con un negocio ficticio · Creado por [[NOMBRE_COMERCIAL]]», enlace de vuelta a `../../#muestras` (la sección Muestras de la landing). |
 | Cabecera | Logo propio, navegación, **estado en vivo** (Abierto/Cierra a las…) y botón «Reservar cita». Se esconde al bajar y vuelve al subir. Menú a pantalla completa en móvil. |
 | Hero | Qué es (barbería de navaja), dónde (Castelló), cómo reservar (CTA a WhatsApp) y estado del horario, todo en la primera pantalla del móvil. Ilustración animada. |
 | 01 · La carta | 14 servicios con precio y duración, filtros por categoría y botón **«Reservar este»** que preselecciona el servicio en el formulario. |
@@ -93,7 +93,7 @@ Escala tipográfica fluida (`clamp`) con contraste fuerte: H1 de 2,9 rem (móvil
 ### Objeto de configuración (al principio de `script.js`)
 ```js
 var CONFIG = {
-  marca: '[[TU_MARCA]]',
+  marca: '[[NOMBRE_COMERCIAL]]',
   precio: 395,
   plazo: '3 días laborables',
   whatsapp: '34623130633',
@@ -104,7 +104,7 @@ var CONFIG = {
 El script rellena con estos valores todos los elementos con `data-cfg="marca|precio|plazo"` y genera el enlace `https://wa.me/34623130633?text=…` (atributo `data-cfg-wa`).
 
 ### Marcadores pendientes
-- **`[[TU_MARCA]]`**: cambiarlo en `CONFIG.marca` (`script.js`, línea 6). Para que también salga bien sin JavaScript y en el HTML que leen los buscadores, sustituirlo además en `index.html`: banner superior (línea ~90), *kicker* de la sección comercial (~823) y pie de la sección comercial (~846).
+- **`[[NOMBRE_COMERCIAL]]`**: cambiarlo en `CONFIG.marca` (`script.js`, línea 6). Para que también salga bien sin JavaScript y en el HTML que leen los buscadores, sustituirlo además en `index.html`: banner superior (línea ~90), *kicker* de la sección comercial (~823) y pie de la sección comercial (~846).
 
 ### Probar el horario a cualquier hora
 Añade `?ahora=AAAA-MM-DDTHH:MM` (hora de España) a la URL. Ejemplos:
