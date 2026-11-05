@@ -8,7 +8,7 @@ site/                 ← lo que se publica
   aviso-legal.html    aviso legal (LSSI)
   privacidad.html     privacidad y cookies (RGPD / LOPDGDD / LSSI)
   404.html, robots.txt, sitemap.xml
-  assets/             styles.css, main.js, favicon.svg, og.png, muestras/ (capturas de las tarjetas)
+  assets/             styles.css, favicon.svg, og.png, fonts/ (Source Sans 3), muestras/ (capturas de las tarjetas)
   muestras/           webs de muestra enlazadas desde la sección Muestras
     barberia/         Navaja & Azahar (Castelló)
     taller/           Taller Giroscopi (Valencia)
@@ -45,7 +45,7 @@ Ya **no hay marcadores `TODO_URL_MUESTRA_n`**: las tres tarjetas de la sección 
 ### Valores que no son marcadores pero debes revisar
 
 - **URL base `https://pablocc8.github.io/web-portfolio/`**: es la URL que tendrá en GitHub Pages. Aparece en `canonical`, Open Graph, JSON-LD, `sitemap.xml`, `robots.txt` y `404.html` (ruta `/web-portfolio/`). Si usas dominio propio, sustitúyela en todos esos sitios (búscala con `grep -rn "pablocc8.github.io\|/web-portfolio/" site/`).
-- **WhatsApp**: todos los botones apuntan a `https://wa.me/34623130633?text=…` (prefijo 34, sin `+` ni espacios; el mensaje precargado es «Hola, me interesa la web de 395 € en 3 días. Mi negocio es: »). Hay 5 enlaces en `index.html`.
+- **WhatsApp**: todos los botones apuntan a `https://wa.me/34623130633?text=…` (prefijo 34, sin `+` ni espacios; el mensaje precargado es «Hola, me interesa la web de 395 € en 3 días. Mi negocio es: »). Hay 4 enlaces en `index.html` (cabecera, portada, precio y cierre).
 - **Teléfono visible en el aviso legal** (`623 130 633`) y en JSON-LD (`+34623130633`).
 - **`og.png`**: imagen 1200×630 con el titular y el precio. Si cambias la oferta, regenérala.
 
@@ -64,11 +64,26 @@ Ya **no hay marcadores `TODO_URL_MUESTRA_n`**: las tres tarjetas de la sección 
 9c. **Rutas de las demos**: `demos/barberia` y `demos/taller` se han movido a `site/muestras/` para que las publique el workflow sin pasos extra (el workflow vuelve a subir solo `site/`). El enlace de vuelta de cada demo es `../../#muestras`. A la del taller le añadí un banner con ese enlace porque no lo tenía.
 9d. **Capturas de las tarjetas**: `site/assets/muestras/*.webp` (800×500). La de la barbería sale de su captura `capturas/escritorio.png` (recortada, sin el banner de demo); las del taller y el restaurante las he generado con Chromium porque esas demos no traían capturas. Si cambias una demo, regenera su captura.
 9e. **Peso**: eliminé las capturas PNG de página completa de la barbería (≈6 MB, ninguna página las usaba) para que no se publiquen. Su README explica cómo regenerarlas; la miniatura de la landing se conserva en `site/assets/muestras/barberia.webp`.
-10. **Sin cookies ni analítica**: la web no usa ninguna, por eso no hay banner de cookies y la política lo declara. Fuentes del sistema, sin recursos de terceros.
+10. **Sin cookies ni analítica**: la web no usa ninguna, por eso no hay banner de cookies y la política lo declara. La tipografía (Source Sans 3) está alojada en el propio sitio, sin recursos de terceros.
 11. **Formulario**: la landing no tiene formulario (el único canal es WhatsApp). El servicio ofrece «formulario o WhatsApp» a los clientes, pero eso es para sus webs.
 12. **Textos legales**: asumo titular persona física (autónomo). Plazos de conservación citados: 4 años (tributario) y 6 años (mercantil). Si eres sociedad o los plazos difieren, corrígelo.
 13. **Hosting**: la política cita GitHub Pages como proveedor de alojamiento de esta web.
 14. **`404.html`** usa rutas absolutas `/web-portfolio/…` (necesario para que funcione en cualquier ruta de Pages).
+
+## Decisiones del rediseño de la landing (noviembre 2026)
+
+Las reglas de diseño y de textos para todas las webs del repo están en `CLAUDE.md`. Lo que decidí al aplicarlas a la landing:
+
+1. **Tipografía**: Source Sans 3 (variable, 29 KB, licencia OFL en `site/assets/fonts/`), alojada en el sitio y precargada. Es sobria, se lee bien en móvil y tiene todos los caracteres del español. Titulares: `h1` 32 px en móvil y 44 px en escritorio; `h2` 28 y 34 px. Los `h3` (20 px) son subtítulos de bloque, no titulares de sección.
+2. **Color**: fondo blanco, gris muy claro (`#f5f6f4`) para alternar secciones, texto casi negro y un único acento verde (`#17804a`), que es también el color de los botones de WhatsApp. Contraste del texto blanco sobre el verde: 5:1.
+3. **Forma**: radios de 4 a 6 px, bordes de 1 px, sin sombras. Solo hay transiciones de color al pasar el ratón (desactivadas con `prefers-reduced-motion`).
+4. **Estructura**: cabecera con nombre, menú y botón; portada a dos columnas con una captura real de la muestra del restaurante en lugar de una ilustración; para quién es; qué incluye; pasos; muestras; precio; preguntas; cierre. La presentación («Me llamo Pablo…») va en el cierre, junto al último botón, en vez de en una sección propia que quedaba demasiado vacía.
+5. **Quitado**: la barra fija de WhatsApp en móvil y su `main.js` (la página ya no lleva JavaScript), las etiquetas numeradas («01», «Caso 1»), las versalitas espaciadas, el bocadillo de chat de la portada, la sección oscura del precio y los títulos con serif.
+6. **Pasos**: siguen siendo una lista ordenada (`<ol>`) para lectores de pantalla, pero sin números visibles; el orden se entiende por los títulos.
+7. **Textos**: reescritos en español de España, en primera persona y con titulares que describen la sección. Se mantienen la oferta, los marcadores y las aclaraciones (sin promesa de posiciones en Google, cambios extra con precio previo). Cifras y unidades con espacio de no separación (`395&nbsp;€`) para que no se partan.
+8. **Nueva afirmación**: «Hablas conmigo desde el primer mensaje hasta que la web está publicada, sin intermediarios». Quítala si en algún momento trabajas con otras personas.
+9. **Páginas legales**: mismo contenido; solo cambian cabecera, pie y estilos para encajar con la landing. Mantienen la numeración de apartados, que es la habitual en textos legales.
+10. **`og.png`**: regenerada con la nueva tipografía y colores.
 
 ## Despliegue (GitHub Pages)
 
@@ -85,7 +100,9 @@ node scripts/check.mjs                    # enlaces y marcadores
 
 ## Verificación realizada
 
-- Navegador (Chromium) a 375 px y 1440 px: landing y las tres demos sin desbordamiento horizontal ni errores de consola; tarjetas con captura, enlaces de ida y vuelta entre landing y demos funcionando.
+- Navegador (Chromium) a 375 px y 1440 px: landing, páginas legales, 404 y las tres demos sin desbordamiento horizontal ni errores de consola; tarjetas con captura y enlaces de ida y vuelta entre landing y demos funcionando.
+- Rediseño revisado en tres rondas de crítica a 375 px y 1440 px. Se corrigió que «395 €» se partía en dos líneas, que las secciones estrechas no se alineaban con el resto y que la sección «Quién hace tu web» quedaba vacía.
+- Lighthouse tras el rediseño (móvil y escritorio): landing, aviso legal y privacidad = 100 en las cuatro categorías.
 - Lighthouse 12 (móvil y escritorio): landing, aviso legal y privacidad = 100 en Rendimiento, Accesibilidad, Buenas prácticas y SEO.
 - Lighthouse en las demos (no son parte de la landing): Accesibilidad 100 en las tres tras corregir contraste (etiquetas «veg», botón verde de WhatsApp, texto «pendiente») y `aria-label` que no contenían el texto visible (pestañas de días del restaurante, logotipo del taller). **SEO 63 en las tres, solo por el `noindex` intencionado.** Rendimiento en móvil: 97 (barbería), 97 (taller) y 91 (restaurante, sin optimizar); 100 en escritorio.
 - `scripts/check.mjs` revisa ahora todo `site/` (html y css, anclas y `url()` de fuentes) y pasa sin errores.
