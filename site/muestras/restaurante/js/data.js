@@ -122,7 +122,7 @@ window.MARJAL = (function () {
     },
     4: {
       titulo: "Jueves de paella",
-      destacado: "Como manda la tradición: los jueves, paella.",
+      destacado: "Los jueves hay paella valenciana.",
       precio: 18.5,
       platos: [
         { curso: "Primeros", opciones: [{ n: "Ensalada valenciana", veg: true }, { n: "Sepia a la plancha con alioli" }] },
@@ -139,7 +139,7 @@ window.MARJAL = (function () {
         { curso: "Segundos", opciones: [{ n: "Arroz negro con alioli", arroz: true }, { n: "Dorada a la espalda" }] },
         { curso: "Postre", opciones: [{ n: "Sorbete de limón", veg: true }, { n: "Fruta de temporada", veg: true }] }
       ],
-      incluye: "Pan, bebida y postre o café · Solo a mediodía"
+      incluye: "Pan, bebida y postre o café. Solo a mediodía"
     },
     6: {
       titulo: "Menú de fin de semana",
@@ -149,7 +149,7 @@ window.MARJAL = (function () {
         { curso: "Arroz a elegir", opciones: [{ n: "Arroz del senyoret", arroz: true }, { n: "Caldoso de rape y alcachofa", arroz: true }, { n: "Arroz de la huerta", arroz: true, veg: true }] },
         { curso: "Postre", opciones: [{ n: "Coca de llanda con helado de horchata", veg: true }, { n: "Naranjas de la Plana", veg: true }] }
       ],
-      incluye: "Pan, bebida, postre y café · Solo a mediodía"
+      incluye: "Pan, bebida, postre y café. Solo a mediodía"
     },
     0: {
       titulo: "Menú de fin de semana",
