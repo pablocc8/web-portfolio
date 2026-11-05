@@ -1,4 +1,6 @@
-Copyright 2019 The Manrope Project Authors (https://github.com/sharanda/manrope)
+Source Sans 3 (woff2 variable, subconjunto latino), vía @fontsource-variable/source-sans-3 5.3.1
+© 2023 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
