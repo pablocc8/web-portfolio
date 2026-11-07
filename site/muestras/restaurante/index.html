@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arrossos del Marjal · Arrocería en El Grau de Castelló</title>
-  <meta name="description" content="Arrocería frente al puerto de El Grau de Castelló. Paellas a la leña, arroces melosos y fideuàs. Carta con alérgenos, menú del día y reservas por WhatsApp.">
+  <meta name="description" content="Arrocería frente al puerto de El Grau de Castelló. Paellas a la leña de naranjo, arroces melosos y fideuàs, menú del día y reserva de mesa por WhatsApp.">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#F3E6D0">
   <meta property="og:title" content="Arrossos del Marjal · Arrocería en El Grau de Castelló">
-  <meta property="og:description" content="Carta con alérgenos, menú del día y reservas de mesa por WhatsApp.">
+  <meta property="og:description" content="Paellas a la leña de naranjo frente al mar. Carta, menú del día y reservas por WhatsApp.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/fraunces-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/data.js" defer></script>
@@ -19,33 +20,105 @@
 </head>
 <body>
 
+  <!-- ===== Sprite de iconos (trazo propio) ===== -->
   <svg class="sprite" aria-hidden="true" focusable="false">
-    <symbol id="i-whatsapp" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.91-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.99 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9a11.82 11.82 0 0 0-3.48-8.4z"/>
+    <symbol id="i-paellera" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 13c-2-3 2-5 0-9M32 13c-2-3 2-5 0-9M42 13c-2-3 2-5 0-9"/>
+        <circle cx="32" cy="38" r="19"/>
+        <circle cx="32" cy="38" r="14"/>
+        <path d="M13 35c-6-1-9 1-9 3s3 4 9 3M51 35c6-1 9 1 9 3s-3 4-9 3"/>
+        <path d="M23 35c0-5 7-6 10-3"/>
+        <circle cx="38" cy="41" r="3"/>
+        <path d="M26 42l4 2"/>
+      </g>
+    </symbol>
+    <symbol id="i-limon" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 37c-2-2-1-4 2-5 3-10 11-15 20-15s17 5 20 15c3 1 4 3 2 5 2 2 1 4-2 5-3 10-11 15-20 15s-17-5-20-15c-3-1-4-3-2-5z"/>
+        <path d="M18 31c3-5 7-7 12-8"/>
+        <path d="M40 17c3-7 10-10 17-9-2 7-8 11-15 11"/>
+      </g>
+    </symbol>
+    <symbol id="i-ola" viewBox="0 0 64 64">
+      <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 44c9 0 11-11 18-17 8-7 21-6 25 3 3 6-2 11-7 9-4-2-3-7 1-7"/>
+        <path d="M4 54c7 0 10-4 17-4s10 4 17 4 10-4 17-4c2 0 4 0 6 1"/>
+        <path d="M50 38c3-1 6-1 10-3"/>
+      </g>
+    </symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 3h6"/>
+      </g>
+    </symbol>
+    <symbol id="i-grupo" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.4 3-5.4 6-5.4s5.4 2 6 5.4"/>
+        <path d="M15.5 5.2a3 3 0 0 1 0 5.6M18 13.8c1.6.7 2.6 2.4 3 5.2"/>
+      </g>
+    </symbol>
+    <symbol id="i-hoja" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 19C4 11 9 5 20 4c0 10-5 15-13 15"/><path d="M5 19c3-5 6-8 10-10"/>
+      </g>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 20l1.3-3.9A8.5 8.5 0 1 1 8 19z"/>
+        <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.4-1.8-1-1 .8c-.9-.4-1.7-1.2-2.1-2.1l.8-1-1-1.8z"/>
+      </g>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </g>
+    </symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 4h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.1 6.1l1.4-2.3L20 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>
+    </symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>
+      </g>
+    </symbol>
+    <symbol id="i-flecha" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-info" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/>
+      </g>
+    </symbol>
+    <symbol id="i-filtro" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M7 12h10M10 18h4"/>
     </symbol>
     <symbol id="i-cerrar" viewBox="0 0 24 24">
-      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
+      <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/>
     </symbol>
   </svg>
 
   <a class="saltar" href="#principal">Saltar al contenido</a>
 
-  <div class="aviso-demo" role="note">
-    <p>Web de ejemplo con un negocio ficticio. <a href="../../#muestras">Volver a las muestras</a></p>
-  </div>
-
+  <!-- ===== Cabecera ===== -->
   <header class="cabecera" id="cabecera">
     <div class="contenedor cabecera__fila">
-      <a class="marca" href="#inicio">Arrossos del Marjal</a>
-      <button class="nav-boton" id="navBoton" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <a class="marca" href="#inicio" aria-label="Arrossos del Marjal, ir al inicio">
+        <svg class="marca__icono" aria-hidden="true"><use href="#i-paellera"/></svg>
+        <span class="marca__texto">Arrossos <em>del</em> Marjal</span>
+      </a>
+      <button class="nav-boton" id="navBoton" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav" id="nav" aria-label="Principal">
         <ul>
+          <li><a href="#carta">La carta</a></li>
           <li><a href="#menu-dia">Menú del día</a></li>
-          <li><a href="#carta">Carta</a></li>
-          <li><a href="#reservar">Reservas</a></li>
-          <li><a href="#visitanos">Dónde estamos</a></li>
+          <li><a href="#visitanos">Visítanos</a></li>
+          <li><a class="boton boton--azafran boton--peq" href="#reservar">Reservar mesa</a></li>
         </ul>
       </nav>
     </div>
@@ -53,72 +126,260 @@
 
   <main id="principal">
 
-    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="inicio">
       <div class="contenedor hero__rejilla">
         <div class="hero__texto">
-          <h1 id="hero-titulo">Arrocería en El Grau de Castelló, frente al puerto</h1>
-          <p class="hero__entrada">Paellas, arroces melosos y fideuàs hechos al momento con leña de naranjo. Abrimos de martes a domingo a mediodía, y los viernes y sábados también por la noche.</p>
-          <a class="boton" href="#reservar">Reservar mesa</a>
+          <p class="antetitulo">Arrocería · El Grau de Castelló</p>
+          <h1 class="hero__titulo">Arroz a la leña, <em>con el mar</em> de sobremesa.</h1>
+          <p class="hero__entrada">Frente al puerto, cocinamos cada paella al momento: fuego de leña de naranjo, caldos de lonja y arroz D.O. Valencia, el mismo que crece en los marjales que nos dan nombre.</p>
+          <div class="hero__acciones">
+            <a class="boton boton--azafran" href="#reservar">
+              Reservar mesa
+              <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+            </a>
+            <a class="boton boton--contorno" href="#carta">Ver la carta</a>
+          </div>
           <ul class="hero__datos">
-            <li class="estado" id="estado" aria-live="polite"><span class="estado__punto" aria-hidden="true"></span><span class="estado__texto">Consultando el horario…</span></li>
-            <li>Passeig de Buenavista, 28</li>
+            <li class="estado" id="estado" aria-live="polite"><span class="estado__punto"></span><span class="estado__texto">Consultando horario…</span></li>
+            <li><svg class="icono" aria-hidden="true"><use href="#i-pin"/></svg>Passeig de Buenavista, 28</li>
           </ul>
         </div>
-        <div class="foto foto--4x3 hero__foto"><span>Aquí iría una foto del negocio</span></div>
-      </div>
-    </section>
 
-    <section class="seccion seccion--gris" aria-labelledby="casa-titulo">
-      <div class="contenedor dos-columnas">
-        <div class="texto">
-          <h2 id="casa-titulo">Sobre el restaurante</h2>
-          <p>Cada arroz se hace al momento, en su paellera y con leña de naranjo. Por eso tarda entre 20 y 25 minutos.</p>
-          <p>El pescado para los caldos llega cada mañana de la lonja del Grau, que está a 200 metros. La verdura viene de la huerta de la Plana.</p>
-          <p>Tenemos comedor y terraza en el paseo. Para grupos de más de 12 personas, llámanos al <a href="tel:+34600123456">600 12 34 56</a>.</p>
+        <div class="hero__arte" aria-hidden="true">
+          <div class="hero__sol"></div>
+          <svg class="hero__paella" viewBox="0 0 440 440" focusable="false">
+            <defs>
+              <pattern id="granos-a" width="26" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(17)">
+                <ellipse cx="5" cy="5" rx="4.6" ry="2" fill="#E39A2C" transform="rotate(30 5 5)"/>
+                <ellipse cx="17" cy="4" rx="4.6" ry="2" fill="#FAD789" transform="rotate(-40 17 4)"/>
+                <ellipse cx="11" cy="14" rx="4.6" ry="2" fill="#D98A22" transform="rotate(80 11 14)"/>
+                <ellipse cx="22" cy="16" rx="4.6" ry="2" fill="#F6C35A" transform="rotate(10 22 16)"/>
+              </pattern>
+              <pattern id="granos-b" width="31" height="27" patternUnits="userSpaceOnUse" patternTransform="rotate(-23)">
+                <ellipse cx="8" cy="20" rx="4.4" ry="1.9" fill="#FCE2A0" transform="rotate(-70 8 20)"/>
+                <ellipse cx="24" cy="9" rx="4.4" ry="1.9" fill="#D4861F" transform="rotate(55 24 9)"/>
+                <ellipse cx="26" cy="23" rx="4.4" ry="1.9" fill="#ECA83D" transform="rotate(-15 26 23)"/>
+              </pattern>
+              <radialGradient id="arroz-luz" cx="42%" cy="36%" r="70%">
+                <stop offset="0" stop-color="#F8C863"/>
+                <stop offset="1" stop-color="#E4922B"/>
+              </radialGradient>
+              <g id="gamba">
+                <path d="M-30 12C-34-18 4-34 28-16" fill="none" stroke="#2B211C" stroke-width="20" stroke-linecap="round"/>
+                <path d="M-30 16L-45 31Q-33 31-31 40Q-24 29-13 31Z" fill="#D9552E" stroke="#2B211C" stroke-width="2.4" stroke-linejoin="round"/>
+                <path d="M-30 12C-34-18 4-34 28-16" fill="none" stroke="#E66B3D" stroke-width="15" stroke-linecap="round"/>
+                <path d="M-33 4C-35-16-6-31 16-26" fill="none" stroke="#F7A577" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M-32.5-8.3L-21.8-2.8M-23.3-19.7L-15.6-10.4M-10.6-26.8L-6.5-15.6M4-29.6L4.3-17.6M17.3-27.9L14-16.3" stroke="#B4432A" stroke-width="2" stroke-linecap="round"/>
+                <path d="M-14 0l3 9M-4-5l4 8M6-8l5 7" stroke="#2B211C" stroke-width="1.8" stroke-linecap="round"/>
+                <ellipse cx="31" cy="-12" rx="12" ry="9" transform="rotate(37 31 -12)" fill="#E66B3D" stroke="#2B211C" stroke-width="2.4"/>
+                <circle cx="33" cy="-17" r="2.4" fill="#2B211C"/>
+                <path d="M39-6C54 0 58 14 52 30M41-11C60-11 70 3 68 19" fill="none" stroke="#2B211C" stroke-width="1.6" stroke-linecap="round"/>
+              </g>
+              <g id="mejillon">
+                <path d="M-23 0C-21-14 8-16 24-3C17 11-12 14-23 0Z" fill="#1F2B36" stroke="#2B211C" stroke-width="2.4" stroke-linejoin="round"/>
+                <path d="M-15 0C-13-8 6-10 16-2C11 6-8 8-15 0Z" fill="#F3A25E"/>
+                <path d="M-10-1C-4-4 4-4 10-2" fill="none" stroke="#D97C3B" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M-19 5C-12 11 6 11 16 6" fill="none" stroke="#5B7182" stroke-width="2" stroke-linecap="round"/>
+              </g>
+              <g id="gajo">
+                <path d="M-26 0A26 26 0 0 1 26 0Z" fill="#F6D24A" stroke="#2B211C" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M-20 0A20 20 0 0 1 20 0Z" fill="#FBEA9E"/>
+                <path d="M0 0L-17.3-10M0 0L-10-17.3M0 0V-20M0 0L10-17.3M0 0L17.3-10" stroke="#F1C83A" stroke-width="2" stroke-linecap="round"/>
+              </g>
+              <g id="judia">
+                <path d="M-15 0Q0-6 15 0" fill="none" stroke="#2B211C" stroke-width="9" stroke-linecap="round"/>
+                <path d="M-15 0Q0-6 15 0" fill="none" stroke="#7AA748" stroke-width="5.5" stroke-linecap="round"/>
+              </g>
+              <g id="garrofo">
+                <ellipse rx="7.5" ry="5.6" fill="#F1E9C9" stroke="#2B211C" stroke-width="1.8"/>
+                <path d="M-3-1.5Q0 1 3-1.5" fill="none" stroke="#B9AE80" stroke-width="1.4" stroke-linecap="round"/>
+              </g>
+              <g id="pimiento">
+                <path d="M-14 3Q0-6 14 2" fill="none" stroke="#2B211C" stroke-width="9.5" stroke-linecap="round"/>
+                <path d="M-14 3Q0-6 14 2" fill="none" stroke="#CF3F2C" stroke-width="6" stroke-linecap="round"/>
+              </g>
+            </defs>
+
+            <!-- asas -->
+            <g fill="none" stroke="#2B211C" stroke-width="5" stroke-linecap="round">
+              <path d="M52 198C20 192 8 208 8 220s12 28 44 22"/>
+              <path d="M388 198c32-6 44 10 44 22s-12 28-44 22"/>
+            </g>
+            <g fill="none" stroke="#5D7280" stroke-width="2.4" stroke-linecap="round">
+              <path d="M44 205c-18-1-24 7-24 15"/>
+              <path d="M396 205c18-1 24 7 24 15"/>
+            </g>
+            <!-- paellera -->
+            <circle cx="220" cy="220" r="172" fill="#34444F"/>
+            <path d="M84 150A156 156 0 0 1 150 84" fill="none" stroke="#7D93A2" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="220" cy="220" r="158" fill="#24313B"/>
+            <circle cx="220" cy="220" r="151" fill="#B9661C"/>
+            <circle cx="220" cy="220" r="146" fill="url(#arroz-luz)"/>
+            <circle cx="220" cy="220" r="146" fill="url(#granos-a)"/>
+            <circle cx="220" cy="220" r="146" fill="url(#granos-b)"/>
+            <circle cx="220" cy="220" r="172" fill="none" stroke="#2B211C" stroke-width="4"/>
+            <circle cx="220" cy="220" r="151" fill="none" stroke="#2B211C" stroke-width="2" opacity=".55"/>
+
+            <!-- verduras -->
+            <use href="#judia" transform="translate(178 214) rotate(28)"/>
+            <use href="#judia" transform="translate(266 196) rotate(-38)"/>
+            <use href="#judia" transform="translate(212 278) rotate(72)"/>
+            <use href="#judia" transform="translate(272 266) rotate(14)"/>
+            <use href="#judia" transform="translate(196 166) rotate(-62)"/>
+            <use href="#judia" transform="translate(150 262) rotate(-20)"/>
+            <use href="#pimiento" transform="translate(246 160) rotate(20)"/>
+            <use href="#pimiento" transform="translate(160 196) rotate(100)"/>
+            <use href="#pimiento" transform="translate(248 300) rotate(-24)"/>
+            <use href="#pimiento" transform="translate(296 232) rotate(78)"/>
+            <use href="#garrofo" transform="translate(232 186) rotate(20)"/>
+            <use href="#garrofo" transform="translate(184 244) rotate(-30)"/>
+            <use href="#garrofo" transform="translate(258 240) rotate(60)"/>
+            <use href="#garrofo" transform="translate(206 302) rotate(10)"/>
+            <use href="#garrofo" transform="translate(290 182) rotate(-50)"/>
+            <use href="#garrofo" transform="translate(150 166) rotate(40)"/>
+            <use href="#garrofo" transform="translate(132 230) rotate(-10)"/>
+
+            <!-- mejillones -->
+            <use href="#mejillon" transform="rotate(36 220 220) translate(220 110) rotate(90)"/>
+            <use href="#mejillon" transform="rotate(108 220 220) translate(220 110) rotate(90)"/>
+            <use href="#mejillon" transform="rotate(180 220 220) translate(220 110) rotate(90)"/>
+            <use href="#mejillon" transform="rotate(252 220 220) translate(220 110) rotate(90)"/>
+            <use href="#mejillon" transform="rotate(324 220 220) translate(220 110) rotate(90)"/>
+
+            <!-- gambas -->
+            <use href="#gamba" transform="rotate(0 220 220) translate(220 122) rotate(-8)"/>
+            <use href="#gamba" transform="rotate(72 220 220) translate(220 122) rotate(-8)"/>
+            <use href="#gamba" transform="rotate(144 220 220) translate(220 122) rotate(-8)"/>
+            <use href="#gamba" transform="rotate(216 220 220) translate(220 122) rotate(-8)"/>
+            <use href="#gamba" transform="rotate(288 220 220) translate(220 122) rotate(-8)"/>
+
+            <!-- limón al centro -->
+            <use href="#gajo" transform="translate(212 224) rotate(-24)"/>
+            <use href="#gajo" transform="translate(232 214) rotate(156)"/>
+            <!-- romero -->
+            <g transform="translate(220 220) rotate(-35)">
+              <path d="M-38 0C-14-4 14-4 40 0" fill="none" stroke="#4A6631" stroke-width="2.6" stroke-linecap="round"/>
+              <g fill="#6E9446" stroke="#3F5A29" stroke-width="1">
+                <ellipse cx="-28" cy="-6" rx="6" ry="2" transform="rotate(-30 -28 -6)"/>
+                <ellipse cx="-20" cy="5" rx="6" ry="2" transform="rotate(30 -20 5)"/>
+                <ellipse cx="22" cy="-6" rx="6" ry="2" transform="rotate(-30 22 -6)"/>
+                <ellipse cx="30" cy="5" rx="6" ry="2" transform="rotate(30 30 5)"/>
+                <ellipse cx="38" cy="-4" rx="5" ry="1.8" transform="rotate(-25 38 -4)"/>
+              </g>
+            </g>
+          </svg>
+
+          <svg class="hero__limon" viewBox="0 0 140 120" focusable="false">
+            <path d="M84 30C92 14 110 8 128 12c-5 15-21 22-38 20" fill="#6E9A45" stroke="#2B211C" stroke-width="2.6" stroke-linejoin="round"/>
+            <path d="M90 30c12-7 24-12 34-15" fill="none" stroke="#4A6E2E" stroke-width="2" stroke-linecap="round"/>
+            <g transform="rotate(-16 66 68)">
+              <path d="M14 68c-4-6-2-10 4-12 6-20 26-30 48-30s42 10 48 30c6 2 8 6 4 12 4 6 2 10-4 12-6 20-26 30-48 30S24 100 18 80c-6-2-8-6-4-12z" fill="#F6D24A" stroke="#2B211C" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M30 58c6-14 20-20 34-21" fill="none" stroke="#FCF0B0" stroke-width="5" stroke-linecap="round"/>
+              <g fill="#DDAE27">
+                <circle cx="50" cy="78" r="1.4"/><circle cx="62" cy="88" r="1.4"/><circle cx="78" cy="80" r="1.4"/>
+                <circle cx="90" cy="64" r="1.4"/><circle cx="72" cy="58" r="1.4"/><circle cx="40" cy="92" r="1.2"/>
+                <circle cx="96" cy="88" r="1.2"/><circle cx="84" cy="96" r="1.2"/>
+              </g>
+            </g>
+          </svg>
+
+          <svg class="hero__ola" viewBox="0 0 160 90" focusable="false">
+            <path d="M6 72c20 0 24-26 42-38 18-12 48-12 58 8 7 14-6 26-18 20-10-5-6-18 4-17" fill="none" stroke="#1E5A80" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 84c12 0 18-6 30-6s18 6 30 6 18-6 30-6 18 6 30 6c10 0 16-3 24-5" fill="none" stroke="#1E5A80" stroke-width="4" stroke-linecap="round"/>
+            <path d="M118 62c10-3 20-3 34-8" fill="none" stroke="#1E5A80" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
         </div>
-        <div class="foto foto--3x2 dos-columnas__foto"><span>Aquí iría una foto del negocio</span></div>
+      </div>
+      <svg class="separador separador--abajo" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 38C120 10 240 10 360 34s240 30 360 6 240-30 360-6 240 30 360 2V70H0z"/>
+      </svg>
+    </section>
+
+    <!-- ===== La casa ===== -->
+    <section class="casa" aria-labelledby="casa-titulo">
+      <div class="contenedor">
+        <h2 class="visualmente-oculto" id="casa-titulo">La casa</h2>
+        <ul class="casa__lista">
+          <li class="casa__item">
+            <svg class="casa__icono casa__icono--terracota" aria-hidden="true"><use href="#i-paellera"/></svg>
+            <h3>Leña de naranjo</h3>
+            <p>Cada arroz se hace al momento, en su paellera y a fuego vivo. Por eso tarda lo que tiene que tardar.</p>
+          </li>
+          <li class="casa__item">
+            <svg class="casa__icono casa__icono--mar" aria-hidden="true"><use href="#i-ola"/></svg>
+            <h3>Lonja a 200 metros</h3>
+            <p>El pescado de roca para los caldos llega cada mañana de la lonja del Grau. Lo que no hay, no se cocina.</p>
+          </li>
+          <li class="casa__item">
+            <svg class="casa__icono casa__icono--azafran" aria-hidden="true"><use href="#i-limon"/></svg>
+            <h3>Huerta de la Plana</h3>
+            <p>Garrofó, alcachofa de Benicarló y limones de la Plana. Producto de aquí, temporada a temporada.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="seccion" id="menu-dia" aria-labelledby="menu-titulo">
+    <!-- ===== Menú del día ===== -->
+    <section class="menu-dia" id="menu-dia" aria-labelledby="menu-titulo">
+      <svg class="separador separador--arriba" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 32C120 60 240 60 360 36s240-30 360-6 240 30 360 6 240-30 360-2V0H0z"/>
+      </svg>
       <div class="contenedor">
         <header class="seccion__cabecera">
-          <h2 id="menu-titulo">Menú del día</h2>
-          <p>De martes a viernes a mediodía cuesta 18,50&nbsp;€. El sábado y el domingo hay menú de fin de semana por 26&nbsp;€. Elige un día para ver los platos.</p>
+          <p class="antetitulo antetitulo--claro">Cambia cada día</p>
+          <h2 class="seccion__titulo" id="menu-titulo">Menú del día</h2>
+          <p class="seccion__entrada">De martes a viernes a mediodía, y menú especial el fin de semana. Hoy te enseñamos el de hoy; toca otro día para ver qué se cocina.</p>
         </header>
 
-        <div class="dias" role="tablist" aria-label="Día de la semana" id="dias"></div>
-        <div class="menu-dia__panel" id="menuPanel" role="tabpanel" tabindex="0"></div>
+        <div class="menu-dia__caja">
+          <div class="dias" role="tablist" aria-label="Día de la semana" id="dias"></div>
+          <div class="menu-dia__panel" id="menuPanel" role="tabpanel" tabindex="0"></div>
+        </div>
       </div>
+      <svg class="separador separador--abajo separador--arena" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 38C120 10 240 10 360 34s240 30 360 6 240-30 360-6 240 30 360 2V70H0z"/>
+      </svg>
     </section>
 
-    <section class="seccion seccion--gris" id="carta" aria-labelledby="carta-titulo">
+    <!-- ===== Carta ===== -->
+    <section class="carta" id="carta" aria-labelledby="carta-titulo">
       <div class="contenedor">
         <header class="seccion__cabecera">
-          <h2 id="carta-titulo">Carta y precios</h2>
-          <p>Puedes filtrar por categoría, ver solo los platos vegetarianos o quitar los que llevan algún alérgeno.</p>
+          <p class="antetitulo">La carta</p>
+          <h2 class="seccion__titulo" id="carta-titulo">De la paellera a la mesa</h2>
+          <p class="seccion__entrada">Filtra por categoría, quédate con lo vegetariano o marca lo que no puedes comer: te enseñamos solo los platos que te sientan bien.</p>
         </header>
 
-        <p class="nota" role="note"><strong>Arroces y fideuàs: mínimo 2 personas.</strong> Se hacen al momento y tardan entre 20 y 25 minutos. Si lo encargas al reservar, estará listo cuando llegues.</p>
+        <div class="aviso-arroz" role="note">
+          <svg class="aviso-arroz__icono" aria-hidden="true"><use href="#i-paellera"/></svg>
+          <p><strong>Arroces y fideuàs: mínimo 2 personas.</strong> Se cocinan al momento y tardan entre 20 y 25 minutos. Si quieres, déjalo encargado al reservar y lo tendrás listo al sentarte.</p>
+        </div>
 
         <div class="filtros">
           <div class="categorias" role="group" aria-label="Categorías" id="categorias"></div>
 
           <div class="filtros__fila">
-            <label class="casilla">
+            <label class="interruptor">
               <input type="checkbox" id="soloVeg">
-              <span>Solo vegetariano</span>
+              <span class="interruptor__pista" aria-hidden="true"></span>
+              <span class="interruptor__texto"><svg class="icono" aria-hidden="true"><use href="#i-hoja"/></svg>Solo vegetariano</span>
             </label>
-            <button type="button" class="boton boton--secundario boton--peq" id="botonAlergenos" aria-expanded="false" aria-controls="panelAlergenos">
+
+            <button type="button" class="boton-alergenos" id="botonAlergenos" aria-expanded="false" aria-controls="panelAlergenos">
+              <svg class="icono" aria-hidden="true"><use href="#i-filtro"/></svg>
               Alérgenos
               <span class="contador" id="contadorAlergenos" hidden>0</span>
             </button>
           </div>
 
           <div class="panel-alergenos" id="panelAlergenos" hidden>
-            <p class="panel-alergenos__titulo">Marca lo que <strong>no puedes tomar</strong> y ocultaremos los platos que lo llevan.</p>
+            <p class="panel-alergenos__titulo">Marca lo que <strong>no puedes tomar</strong> y ocultaremos los platos que lo contienen:</p>
             <div class="alergenos-opciones" id="alergenosOpciones" role="group" aria-label="Alérgenos a evitar"></div>
-            <p class="panel-alergenos__nota">Información según el Reglamento (UE) 1169/2011. En la cocina se manipulan todos los alérgenos y puede haber trazas. Si tienes una alergia grave, avísanos al reservar.</p>
+            <p class="panel-alergenos__nota">
+              <svg class="icono" aria-hidden="true"><use href="#i-info"/></svg>
+              Información según el Reglamento (UE) 1169/2011. En nuestra cocina se manipulan todos los alérgenos y puede haber trazas: si tienes una alergia severa, avísanos al reservar.
+            </p>
           </div>
         </div>
 
@@ -129,178 +390,168 @@
 
         <div class="carta__listado" id="cartaListado"></div>
 
-        <p class="carta__pie">Precios con IVA incluido. Los arroces y fideuàs son por persona. Pan y aceite de la casa: 1,80&nbsp;€ por persona.</p>
+        <p class="carta__pie">Precios con IVA incluido. Los arroces y fideuàs se indican por persona. Pan y aceite de la casa: 1,80 €/pers.</p>
       </div>
     </section>
 
-    <section class="seccion" id="reservar" aria-labelledby="reserva-titulo">
+    <!-- ===== Reserva ===== -->
+    <section class="reserva" id="reservar" aria-labelledby="reserva-titulo">
+      <svg class="separador separador--arriba separador--azafran" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 32C120 60 240 60 360 36s240-30 360-6 240 30 360 6 240-30 360-2V0H0z"/>
+      </svg>
       <div class="contenedor">
         <header class="seccion__cabecera">
-          <h2 id="reserva-titulo">Reservar mesa</h2>
-          <p>Elige día, hora y número de personas. Al enviar se abre WhatsApp con el mensaje escrito y te confirmamos la mesa en el mismo chat.</p>
+          <p class="antetitulo">Reservas</p>
+          <h2 class="seccion__titulo" id="reserva-titulo">Guárdanos una mesa</h2>
+          <p class="seccion__entrada">Elige día, hora y cuántos sois. Te preparamos el mensaje y lo envías por WhatsApp: te confirmamos en el mismo chat.</p>
         </header>
 
         <div class="reserva__rejilla">
           <form class="formulario" id="formReserva" novalidate>
             <div class="campo">
-              <label for="fecha">Día</label>
+              <label for="fecha"><svg class="icono" aria-hidden="true"><use href="#i-calendario"/></svg>Día</label>
               <input type="date" id="fecha" name="fecha" required aria-describedby="fechaAyuda fechaError">
-              <p class="campo__ayuda" id="fechaAyuda">Los lunes cerramos. Puedes reservar hasta con 60 días de antelación.</p>
+              <p class="campo__ayuda" id="fechaAyuda">Lunes cerrado por descanso. Reservas hasta 60 días vista.</p>
               <p class="campo__error" id="fechaError" role="alert"></p>
             </div>
 
             <fieldset class="campo">
-              <legend>Hora</legend>
+              <legend><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg>Hora</legend>
               <div class="horas" id="horas"></div>
               <p class="campo__error" id="horaError" role="alert"></p>
             </fieldset>
 
             <div class="campo">
-              <span class="campo__etiqueta" id="comensalesEtiqueta">Personas</span>
+              <span class="campo__etiqueta" id="comensalesEtiqueta"><svg class="icono" aria-hidden="true"><use href="#i-grupo"/></svg>Comensales</span>
               <div class="contador-personas" role="group" aria-labelledby="comensalesEtiqueta">
-                <button type="button" class="contador-personas__boton" id="menos" aria-label="Quitar una persona">−</button>
+                <button type="button" class="contador-personas__boton" id="menos" aria-label="Quitar un comensal">−</button>
                 <input type="number" id="comensales" name="comensales" min="1" max="12" value="2" inputmode="numeric" aria-labelledby="comensalesEtiqueta">
-                <button type="button" class="contador-personas__boton" id="mas" aria-label="Añadir una persona">+</button>
+                <button type="button" class="contador-personas__boton" id="mas" aria-label="Añadir un comensal">+</button>
               </div>
-              <p class="campo__ayuda" id="comensalesAyuda">Si sois más de 12, llámanos al <a href="tel:+34600123456">600 12 34 56</a>.</p>
+              <p class="campo__ayuda" id="comensalesAyuda">¿Más de 12? Llámanos al <a href="tel:+34600123456">600 12 34 56</a> y lo organizamos.</p>
             </div>
 
             <fieldset class="campo">
-              <legend>Zona</legend>
-              <div class="opciones">
-                <label class="opcion"><input type="radio" name="zona" value="Terraza"><span>Terraza</span></label>
-                <label class="opcion"><input type="radio" name="zona" value="Interior"><span>Interior</span></label>
-                <label class="opcion"><input type="radio" name="zona" value="" checked><span>Me da igual</span></label>
+              <legend>Zona preferida</legend>
+              <div class="pildoras">
+                <label class="pildora"><input type="radio" name="zona" value="Terraza"><span>Terraza</span></label>
+                <label class="pildora"><input type="radio" name="zona" value="Interior"><span>Interior</span></label>
+                <label class="pildora"><input type="radio" name="zona" value="" checked><span>Me da igual</span></label>
               </div>
             </fieldset>
 
-            <div class="campo">
-              <label for="arroz">Dejar el arroz encargado <span class="opcional">(opcional)</span></label>
+            <div class="campo campo--arroz">
+              <label for="arroz"><svg class="icono" aria-hidden="true"><use href="#i-paellera"/></svg>Dejar el arroz encargado <span class="opcional">(opcional)</span></label>
               <div class="arroz-encargo">
                 <select id="arroz" name="arroz"></select>
                 <select id="raciones" name="raciones" aria-label="Raciones de arroz"></select>
               </div>
-              <p class="campo__ayuda" id="arrozAyuda">Así lo empezamos antes y no tienes que esperar.</p>
+              <p class="campo__ayuda" id="arrozAyuda">Así lo empezamos antes y no esperas los 20–25 minutos.</p>
             </div>
 
             <div class="campo">
               <label for="nombre">A nombre de</label>
-              <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="60" required aria-describedby="nombreError">
+              <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="60" required aria-describedby="nombreError" placeholder="Tu nombre">
               <p class="campo__error" id="nombreError" role="alert"></p>
             </div>
 
             <div class="campo">
-              <label for="notas">Observaciones <span class="opcional">(opcional)</span></label>
-              <textarea id="notas" name="notas" rows="3" maxlength="240" placeholder="Alergias, trona, carrito, cumpleaños…"></textarea>
+              <label for="notas">Algo que debamos saber <span class="opcional">(opcional)</span></label>
+              <textarea id="notas" name="notas" rows="3" maxlength="240" placeholder="Alergias, trona, carrito, celebración…"></textarea>
             </div>
 
-            <button type="submit" class="boton boton--ancho">
-              <svg class="icono" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+            <button type="submit" class="boton boton--whatsapp boton--ancho">
+              <svg class="icono" aria-hidden="true"><use href="#i-chat"/></svg>
               Enviar reserva por WhatsApp
             </button>
             <p class="formulario__ok" id="reservaOk" role="status" hidden></p>
           </form>
 
           <aside class="vista-previa" aria-labelledby="vistaTitulo">
-            <h3 class="vista-previa__titulo" id="vistaTitulo">Vista previa del mensaje</h3>
-            <p class="vista-previa__para">Para: Arrossos del Marjal (WhatsApp)</p>
-            <p class="burbuja" id="burbuja"></p>
+            <p class="vista-previa__titulo" id="vistaTitulo">Así llegará tu mensaje</p>
+            <div class="movil">
+              <div class="movil__barra">
+                <span class="movil__avatar" aria-hidden="true"><svg><use href="#i-paellera"/></svg></span>
+                <span>
+                  <strong>Arrossos del Marjal</strong>
+                  <small>Reservas · normalmente responde en minutos</small>
+                </span>
+              </div>
+              <div class="movil__chat">
+                <p class="burbuja" id="burbuja"></p>
+              </div>
+            </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="seccion seccion--gris" id="visitanos" aria-labelledby="visita-titulo">
-      <div class="contenedor">
-        <header class="seccion__cabecera">
-          <h2 id="visita-titulo">Dónde estamos</h2>
-        </header>
-        <div class="visitanos__rejilla">
-          <div class="visitanos__direccion">
-            <h3>Dirección</h3>
-            <address>
-              <p>Passeig de Buenavista, 28<br>12100 El Grau de Castelló</p>
-              <p>Teléfono: <a href="tel:+34600123456">600 12 34 56</a></p>
-            </address>
-            <p>Estamos en el paseo marítimo, enfrente del puerto. Hay aparcamiento público en la explanada del puerto.</p>
-            <a class="boton boton--secundario" href="https://www.google.com/maps/search/?api=1&amp;query=Passeig+de+Buenavista+El+Grau+de+Castell%C3%B3" target="_blank" rel="noopener">Cómo llegar<span class="visualmente-oculto"> (se abre Google Maps en una pestaña nueva)</span></a>
-          </div>
-
-          <div class="horario">
-            <h3>Horario</h3>
-            <table class="horario__tabla" id="tablaHorario">
-              <caption class="visualmente-oculto">Horario de apertura</caption>
-              <tbody></tbody>
-            </table>
-            <p class="horario__nota">La cocina cierra 30 minutos antes. Los arroces se piden hasta 1 hora antes del cierre.</p>
-          </div>
-
-          <div class="foto foto--4x3"><span>Aquí iría una foto del negocio</span></div>
+    <!-- ===== Visítanos ===== -->
+    <section class="visitanos" id="visitanos" aria-labelledby="visita-titulo">
+      <div class="contenedor visitanos__rejilla">
+        <div>
+          <p class="antetitulo antetitulo--claro">Visítanos</p>
+          <h2 class="seccion__titulo" id="visita-titulo">En el Grau, frente al puerto</h2>
+          <address class="visitanos__direccion">
+            <p><svg class="icono" aria-hidden="true"><use href="#i-pin"/></svg>Passeig de Buenavista, 28<br>12100 El Grau de Castelló</p>
+            <p><svg class="icono" aria-hidden="true"><use href="#i-tel"/></svg><a href="tel:+34600123456">600 12 34 56</a></p>
+          </address>
+          <a class="boton boton--arena" href="https://www.google.com/maps/search/?api=1&amp;query=Passeig+de+Buenavista+El+Grau+de+Castell%C3%B3" target="_blank" rel="noopener">
+            Cómo llegar
+            <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg>
+          </a>
         </div>
+
+        <div class="horario">
+          <h3 class="horario__titulo">Horario</h3>
+          <table class="horario__tabla" id="tablaHorario">
+            <caption class="visualmente-oculto">Horario de apertura</caption>
+            <tbody></tbody>
+          </table>
+          <p class="horario__nota">Cocina abierta hasta 30 min antes del cierre. Los arroces, hasta 1 h antes.</p>
+        </div>
+
+        <svg class="mapa" viewBox="0 0 400 280" role="img" aria-label="Plano ilustrado: el restaurante está en el paseo marítimo, junto al puerto del Grau">
+          <rect width="400" height="280" rx="22" fill="#F3E6D0"/>
+          <path d="M0 150C40 140 70 160 110 150s60-30 100-24 70 30 110 22 60-20 80-18V280H0z" fill="#CFE3EE"/>
+          <path d="M0 150C40 140 70 160 110 150s60-30 100-24 70 30 110 22 60-20 80-18" fill="none" stroke="#1E5A80" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M210 126v70c0 14 10 22 26 22h70" fill="none" stroke="#2B211C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M150 152v34c0 8 6 12 14 12h18" fill="none" stroke="#2B211C" stroke-width="4" stroke-linecap="round"/>
+          <g fill="none" stroke="#1E5A80" stroke-width="2.2" stroke-linecap="round" opacity=".6">
+            <path d="M40 210c8-4 16-4 24 0s16 4 24 0"/>
+            <path d="M300 250c8-4 16-4 24 0s16 4 24 0"/>
+            <path d="M90 250c8-4 16-4 24 0s16 4 24 0"/>
+          </g>
+          <path d="M20 110C120 104 260 108 380 96" fill="none" stroke="#E7D3B3" stroke-width="12" stroke-linecap="round"/>
+          <path d="M96 22c26 30 44 56 50 84" fill="none" stroke="#E7D3B3" stroke-width="8" stroke-linecap="round"/>
+          <g transform="translate(250 104)">
+            <path d="M0 0c-12-14-18-22-18-30a18 18 0 0 1 36 0c0 8-6 16-18 30z" fill="#C65A33" stroke="#2B211C" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="0" cy="-30" r="6.5" fill="#FBF5EA"/>
+          </g>
+          <text x="250" y="46" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="600" fill="#2B211C">Arrossos del Marjal</text>
+          <text x="24" y="92" font-family="DM Sans, sans-serif" font-size="11" fill="#5E4F45" letter-spacing="1">PASSEIG DE BUENAVISTA</text>
+          <text x="112" y="30" font-family="DM Sans, sans-serif" font-size="12" fill="#5E4F45">Castelló centro ↑</text>
+          <text x="236" y="240" font-family="DM Sans, sans-serif" font-size="12" fill="#1E5A80" letter-spacing="1">PUERTO</text>
+          <text x="30" y="262" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="16" fill="#1E5A80">Mar Mediterráneo</text>
+        </svg>
       </div>
     </section>
   </main>
 
   <footer class="pie">
-    <div class="contenedor pie__rejilla">
-      <div>
-        <p class="pie__nombre">Arrossos del Marjal</p>
-        <p>Arrocería en El Grau de Castelló</p>
-      </div>
-      <div>
-        <p class="pie__titulo">Horario</p>
-        <ul class="pie__lista" id="pieHorario">
-          <li>Lunes: cerrado</li>
-          <li>Martes a jueves: 13:00 a 16:00</li>
-          <li>Viernes y sábado: 13:00 a 16:00 y 20:30 a 23:30</li>
-          <li>Domingo: 13:00 a 16:30</li>
-        </ul>
-      </div>
-      <div>
-        <p class="pie__titulo">Dirección</p>
-        <p>Passeig de Buenavista, 28<br>12100 El Grau de Castelló</p>
-      </div>
-      <div>
-        <p class="pie__titulo">Contacto</p>
-        <ul class="pie__lista">
-          <li>Teléfono: <a href="tel:+34600123456">600 12 34 56</a></li>
-          <li>WhatsApp: <a href="https://wa.me/34600123456" target="_blank" rel="noopener">600 12 34 56<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span></a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="contenedor pie__legal">
-      <p>© <span id="anio">2026</span> Arrossos del Marjal. Web de ejemplo: el negocio, el teléfono y los datos son ficticios. <a href="../../#muestras">Volver a las muestras</a></p>
+    <div class="contenedor pie__fila">
+      <p class="marca marca--pie">
+        <svg class="marca__icono" aria-hidden="true"><use href="#i-paellera"/></svg>
+        <span class="marca__texto">Arrossos <em>del</em> Marjal</span>
+      </p>
+      <p>© <span id="anio">2026</span> Arrossos del Marjal · El Grau de Castelló</p>
+      <p class="pie__demo">Web de demostración: negocio, teléfono y datos ficticios. <a href="../../#muestras">Volver a las muestras</a></p>
     </div>
   </footer>
 
-  <section class="oferta" id="oferta" aria-labelledby="oferta-titulo">
-    <div class="contenedor oferta__rejilla">
-      <div class="oferta__texto">
-        <p class="oferta__aviso">Fin del ejemplo</p>
-        <h2 id="oferta-titulo">¿Quieres una web así para tu negocio?</h2>
-        <p>Soy Pablo y hago webs para negocios locales de la Comunidad Valenciana. Esta muestra incluye la carta con filtro de alérgenos y la reserva de mesa por WhatsApp.</p>
-        <p>La tuya se haría con tu carta y tus fotos. <a href="../../#muestras">Ver las otras muestras</a></p>
-      </div>
-      <div class="oferta__caja">
-        <p class="oferta__precio">395&nbsp;€</p>
-        <p class="oferta__sub">Pago único</p>
-        <ul class="oferta__lista">
-          <li>Lista en 3 días laborables.</li>
-          <li>Mantenimiento opcional: 20&nbsp;€ al mes.</li>
-          <li>Contacto por WhatsApp desde el móvil.</li>
-        </ul>
-        <a class="boton boton--ancho" href="https://wa.me/34623130633?text=Hola%2C%20he%20visto%20la%20web%20de%20ejemplo%20del%20restaurante%20y%20me%20interesa%20una%20para%20mi%20negocio" target="_blank" rel="noopener">
-          <svg class="icono" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-          Escríbeme por WhatsApp<span class="visualmente-oculto"> (se abre en una pestaña nueva)</span>
-        </a>
-        <p class="oferta__nota">Te contesto yo. Me cuentas qué negocio tienes y te digo cómo quedaría.</p>
-      </div>
-    </div>
-  </section>
-
-  <a class="whatsapp-flotante" id="ctaMovil" href="https://wa.me/34600123456?text=Hola%2C%20quer%C3%ADa%20hacer%20una%20consulta." target="_blank" rel="noopener">
-    <svg class="icono" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-    WhatsApp<span class="visualmente-oculto"> del restaurante (se abre en una pestaña nueva)</span>
+  <a class="cta-movil" id="ctaMovil" href="#reservar">
+    <svg class="icono" aria-hidden="true"><use href="#i-calendario"/></svg>
+    Reservar mesa
   </a>
 </body>
 </html>

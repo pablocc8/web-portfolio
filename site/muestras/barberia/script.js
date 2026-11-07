@@ -41,7 +41,8 @@ var NEGOCIO = {
   'use strict';
 
   var doc = document;
-  doc.documentElement.classList.add('js');
+  var root = doc.documentElement;
+  root.classList.add('js');
 
   var DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
   var DIAS_CORTO = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
@@ -123,23 +124,17 @@ var NEGOCIO = {
     return { state: 'closed', title: 'Cerrado', detail: '' };
   }
 
-  var lastStatus = '';
   function renderStatus() {
     var n = now();
     var s = computeStatus(n);
-    var html = '<strong>' + s.title + '</strong>' + (s.detail ? ' · ' + s.detail : '');
-    /* Solo se reescribe si cambia, para no repetir el aviso del lector de pantalla */
-    if (html !== lastStatus) {
-      lastStatus = html;
-      $$('[data-status]').forEach(function (el) {
-        el.classList.remove('is-open', 'is-soon', 'is-closed');
-        el.classList.add('is-' + s.state);
-        var t = $('.status-text', el);
-        if (t) t.innerHTML = html;
-      });
-    }
+    $$('[data-status]').forEach(function (el) {
+      el.classList.remove('is-open', 'is-soon', 'is-closed');
+      el.classList.add('is-' + s.state);
+      var t = $('.status-text', el);
+      if (t) t.innerHTML = '<strong>' + s.title + '</strong>' + (s.detail ? '<span class="status-detail"><span class="status-sep"> · </span>' + s.detail + '</span>' : '');
+    });
     $$('[data-now]').forEach(function (el) {
-      el.textContent = 'En Castelló son las ' + fmtMin(n.min) + ' del ' + DIAS[n.dow] + (simulated ? ' (hora simulada).' : '.');
+      el.textContent = 'Son las ' + fmtMin(n.min) + ' del ' + DIAS[n.dow] + ' en Castelló' + (simulated ? ' (hora simulada)' : '') + '. Se actualiza solo.';
     });
     $$('#horario tr').forEach(function (tr) {
       var d = +tr.getAttribute('data-day');
@@ -154,29 +149,35 @@ var NEGOCIO = {
     $$('[data-year]').forEach(function (el) { el.textContent = n.y; });
   }
 
+  /* ---------- Banner: altura real ---------- */
+  function syncBar() {
+    var bar = $('.demo-bar');
+    if (bar) root.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+  }
+
   /* ---------- Aviso de demo ---------- */
   var notice = $('#notice');
   var lastTrigger = null;
   var AVISOS = {
     call: {
-      title: 'Llamar',
-      text: '<strong>En tu web, este botón llama a tu negocio.</strong> El cliente no tiene que copiar el número.'
+      title: 'Llamada en un toque',
+      text: '<strong>En tu web, este botón llama a tu negocio con un solo toque.</strong> El cliente no tiene que copiar ni apuntar ningún número.'
     },
     whatsapp: {
-      title: 'WhatsApp',
-      text: '<strong>En tu web, este botón abre WhatsApp con un mensaje ya escrito.</strong> La consulta te llega directamente al móvil.'
+      title: 'WhatsApp directo',
+      text: '<strong>En tu web, este botón abre WhatsApp con el mensaje ya escrito</strong> y la reserva te llega directamente al móvil.'
     },
     maps: {
       title: 'Cómo llegar',
-      text: '<strong>En tu web, este botón abre el mapa del móvil</strong> con la ruta hasta tu local, a pie o en coche.'
+      text: '<strong>En tu web, este botón abre el mapa del móvil con la ruta</strong> hasta tu puerta, a pie o en coche.'
     },
     legal: {
-      title: 'Aviso legal y privacidad',
-      text: 'En tu web, aquí irían tu aviso legal y tu política de privacidad, adaptados a tu negocio.'
+      title: 'Textos legales',
+      text: 'En tu web, aquí van tu aviso legal y tus políticas de privacidad y cookies, adaptados a tu negocio.'
     },
     booking: {
       title: 'Reserva lista para enviar',
-      text: '<strong>En tu web, este botón abre WhatsApp con este mensaje.</strong> La reserva te llega al móvil y tú contestas con la hora exacta.'
+      text: '<strong>En tu web, este botón abre WhatsApp con este mensaje ya escrito</strong> y la reserva te llega al móvil. Tú solo contestas con la hora exacta.'
     }
   };
 
@@ -217,49 +218,103 @@ var NEGOCIO = {
   });
 
   /* ---------- Menú móvil ---------- */
-  function initMenu() {
-    var toggle = $('.menu-toggle');
-    var nav = $('#menu');
-    if (!toggle || !nav) return;
-    function isOpen() { return toggle.getAttribute('aria-expanded') === 'true'; }
-    function setMenu(open) {
-      toggle.setAttribute('aria-expanded', String(open));
-      nav.classList.toggle('is-open', open);
+  var toggle = $('.menu-toggle');
+  var menu = $('#menu-movil');
+  function setMenu(open) {
+    if (!menu || !toggle) return;
+    toggle.setAttribute('aria-expanded', String(open));
+    $('.menu-toggle-label', toggle).textContent = open ? 'Cerrar' : 'Menú';
+    if (open) {
+      menu.hidden = false;
+      menu.classList.add('is-open');
+      doc.body.style.overflow = 'hidden';
+      header.classList.remove('is-hidden');
+      var f = $('a', menu); if (f) f.focus();
+    } else {
+      menu.hidden = true;
+      menu.classList.remove('is-open');
+      doc.body.style.overflow = '';
     }
-    toggle.addEventListener('click', function () { setMenu(!isOpen()); });
-    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  }
+  if (toggle) {
+    toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
     doc.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && isOpen()) { setMenu(false); toggle.focus(); }
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); }
     });
-    doc.addEventListener('click', function (e) {
-      if (isOpen() && !e.target.closest('#cabecera')) setMenu(false);
-    });
-    window.addEventListener('resize', function () { if (window.innerWidth >= 900 && isOpen()) setMenu(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 900 && !menu.hidden) setMenu(false); });
   }
 
-  /* ---------- Botón flotante de WhatsApp ----------
-     Se oculta en la reserva (ya tiene su botón de WhatsApp) y en la sección final */
-  function initFloat() {
-    var btn = $('#wa-float');
-    if (!btn || !('IntersectionObserver' in window)) return;
-    var visibles = {};
+  /* ---------- Cabecera que se esconde al bajar ---------- */
+  var header = $('#cabecera');
+  var lastY = 0;
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY;
+    header.classList.toggle('is-scrolled', y > 8);
+    var menuOpen = toggle && toggle.getAttribute('aria-expanded') === 'true';
+    if (!menuOpen && !header.contains(doc.activeElement)) {
+      if (y > 420 && y > lastY + 6) header.classList.add('is-hidden');
+      else if (y < lastY - 6 || y < 420) header.classList.remove('is-hidden');
+    }
+    lastY = y;
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  header.addEventListener('focusin', function () { header.classList.remove('is-hidden'); });
+
+  /* ---------- Entradas al hacer scroll ---------- */
+  function initReveal() {
+    var items = $$('.reveal');
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      items.forEach(function (el) { el.classList.add('is-in'); });
+      return;
+    }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { visibles[en.target.id] = en.isIntersecting; });
-      btn.classList.toggle('is-hidden', !!(visibles.reserva || visibles['tu-web']));
-    }, { rootMargin: '0px 0px -10% 0px' });
-    ['#reserva', '#tu-web'].forEach(function (s) { var el = $(s); if (el) io.observe(el); });
+      var batch = entries.filter(function (en) { return en.isIntersecting; });
+      batch.forEach(function (en, i) {
+        en.target.style.transitionDelay = Math.min(i * 90, 360) + 'ms';
+        en.target.classList.add('is-in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- Servicios: filtros ---------- */
+  /* ---------- Dock flotante ---------- */
+  function initDock() {
+    var dock = $('#dock');
+    var heroActions = $('.hero-actions');
+    var author = $('#tu-web');
+    if (!dock || !('IntersectionObserver' in window)) { if (dock) dock.classList.add('is-visible'); return; }
+    var pastHero = false, inAuthor = false;
+    function update() { dock.classList.toggle('is-visible', pastHero && !inAuthor); }
+    new IntersectionObserver(function (en) {
+      var e = en[0];
+      pastHero = !e.isIntersecting && e.boundingClientRect.top < 0;
+      update();
+    }).observe(heroActions);
+    new IntersectionObserver(function (en) { inAuthor = en[0].isIntersecting; update(); }, { rootMargin: '0px 0px -15% 0px' }).observe(author);
+  }
+
+  /* ---------- Carta: filtros ---------- */
   function initFilters() {
     var chips = $$('[data-filter]');
     var groups = $$('.menu-group');
     chips.forEach(function (chip) {
       chip.addEventListener('click', function () {
         var f = chip.getAttribute('data-filter');
-        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+        chips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-pressed', String(on));
+        });
         groups.forEach(function (g) {
-          g.hidden = !(f === 'todo' || g.getAttribute('data-group') === f);
+          var show = f === 'todo' || g.getAttribute('data-group') === f;
+          g.hidden = !show;
+          if (show) g.classList.add('is-in');
         });
       });
     });
@@ -270,15 +325,15 @@ var NEGOCIO = {
   var sel = $('#f-servicio');
   var daysBox = $('#opt-dia');
   var slotsBox = $('#opt-franja');
-  var slotsHint = $('#hint-franja');
   var nameInput = $('#f-nombre');
   var SERVICES = {};
   var lastDaysHtml = '';
 
   function buildServices() {
     $$('.menu-group').forEach(function (g) {
+      var title = $('.group-title', g).firstChild.textContent.trim();
       var og = doc.createElement('optgroup');
-      og.label = $('.group-title', g).textContent.trim();
+      og.label = title;
       $$('.svc', g).forEach(function (li) {
         var s = {
           id: li.getAttribute('data-id'),
@@ -306,10 +361,6 @@ var NEGOCIO = {
     });
   }
 
-  function dayLabel(d, k) {
-    return (k === 0 ? 'Hoy, ' : (k === 1 ? 'Mañana, ' : '')) + DIAS[d.dow] + ' ' + d.d + ' de ' + MESES[d.mo - 1];
-  }
-
   function renderDays() {
     var n = now();
     var dur = currentService() ? currentService().min : 20;
@@ -320,11 +371,11 @@ var NEGOCIO = {
       var closed = !slots.length;
       var full = !closed && slots.every(function (s) { return s.past; });
       var iso = d.y + '-' + pad(d.mo) + '-' + pad(d.d);
-      var label = dayLabel(d, k) + (closed ? ', cerrado' : (full ? ', sin franjas libres' : ''));
-      html += '<label class="opt"><input type="radio" name="dia" value="' + iso + '" data-k="' + k + '"' + (closed || full ? ' disabled' : '') + '>' +
-        '<span class="opt-box" aria-hidden="true"><span class="day-w">' + (k === 0 ? 'Hoy' : DIAS_CORTO[d.dow]) + '</span>' +
-        '<span class="day-n">' + d.d + '</span><span class="day-m">' + MESES_CORTO[d.mo - 1] + '</span></span>' +
-        '<span class="sr-only">' + esc(label) + '</span></label>';
+      var w = k === 0 ? 'Hoy' : (k === 1 ? 'Mañana' : DIAS_CORTO[d.dow]);
+      var sub = closed ? 'Cerrado' : (full ? 'Sin huecos' : MESES_CORTO[d.mo - 1]);
+      var label = (k === 0 ? 'Hoy, ' : (k === 1 ? 'Mañana, ' : '')) + DIAS[d.dow] + ' ' + d.d + ' de ' + MESES[d.mo - 1] + (closed ? ', cerrado' : (full ? ', sin franjas disponibles' : ''));
+      html += '<label class="opt"><input type="radio" name="dia" value="' + iso + '" data-k="' + k + '" aria-label="' + esc(label) + '"' + (closed || full ? ' disabled' : '') + '>' +
+        '<span><span class="day-w">' + w + '</span><span class="day-n">' + d.d + '</span><span class="day-m">' + sub + '</span></span></label>';
     }
     if (html === lastDaysHtml) return;
     lastDaysHtml = html;
@@ -339,11 +390,7 @@ var NEGOCIO = {
   function renderSlots() {
     var n = now();
     var k = daysBox.querySelector('input:checked');
-    if (!k) {
-      slotsBox.innerHTML = '<p class="slots-empty">Primero elige un día.</p>';
-      slotsHint.hidden = true;
-      return;
-    }
+    if (!k) { slotsBox.innerHTML = '<p class="slots-empty">Primero elige un día.</p>'; return; }
     var d = addDays(n, +k.getAttribute('data-k'));
     var dur = currentService() ? currentService().min : 20;
     var slots = slotsFor(d.dow, +k.getAttribute('data-k') === 0, n, dur);
@@ -352,35 +399,31 @@ var NEGOCIO = {
     slots.forEach(function (s) {
       var val = s.name + '|' + s.from + '|' + s.to;
       html += '<label class="opt"><input type="radio" name="franja" value="' + esc(val) + '"' + (s.past ? ' disabled' : '') + (prev === val && !s.past ? ' checked' : '') + '>' +
-        '<span class="opt-box"><span class="opt-title">' + s.name + '</span><span class="opt-sub">' + (s.past ? 'Ya ha pasado' : fmtMin(s.from) + ' a ' + fmtMin(s.to)) + '</span></span></label>';
+        '<span>' + s.name + '<small>' + (s.past ? 'Ya ha pasado' : fmtMin(s.from) + '–' + fmtMin(s.to)) + '</small></span></label>';
     });
+    if (d.dow === 6) html += '<p class="slots-hint">Los sábados vuelan: si puedes, reserva con unos días de margen.</p>';
+    if (d.dow === 5) html += '<p class="slots-hint">Los viernes no cerramos a mediodía: la sobremesa suele estar más tranquila.</p>';
     slotsBox.innerHTML = html;
-    var hint = '';
-    if (d.dow === 6) hint = 'Los sábados se llenan antes. Si puedes, reserva con unos días de margen.';
-    if (d.dow === 5) hint = 'Los viernes no cerramos a mediodía. La sobremesa suele estar más tranquila.';
-    slotsHint.textContent = hint;
-    slotsHint.hidden = !hint;
-  }
-
-  function franjaText(fr) {
-    var p = fr.split('|');
-    return p[0] + ', de ' + fmtMin(+p[1]) + ' a ' + fmtMin(+p[2]);
   }
 
   function buildMessage() {
     var s = currentService();
+    var b = checked('barbero');
     var dk = daysBox.querySelector('input:checked');
     var fr = checked('franja');
     var nombre = nameInput.value.trim();
-    var lines = ['Hola, quería reservar una cita en ' + NEGOCIO.nombre + '.'];
-    lines.push('Servicio: ' + (s ? s.name + ' (' + s.min + ' min, ' + s.price + ' €)' : 'sin elegir'));
-    lines.push('Barbero: ' + (checked('barbero') || 'Me da igual'));
+    var lines = ['Hola, quería reservar en ' + NEGOCIO.nombre + ':'];
+    lines.push('· Servicio: ' + (s ? s.name + ' (' + s.min + ' min, ' + s.price + ' €)' : '…'));
+    lines.push('· Barbero: ' + (b || 'Me da igual'));
     if (dk) {
       var d = addDays(now(), +dk.getAttribute('data-k'));
-      lines.push('Día: ' + DIAS[d.dow] + ' ' + d.d + ' de ' + MESES[d.mo - 1]);
-    } else lines.push('Día: sin elegir');
-    lines.push('Franja: ' + (fr ? franjaText(fr).toLowerCase() : 'sin elegir'));
-    lines.push((nombre ? 'Soy ' + nombre + '. ' : '') + '¿Me confirmáis la hora? Gracias.');
+      lines.push('· Día: ' + DIAS[d.dow] + ' ' + d.d + ' de ' + MESES[d.mo - 1]);
+    } else lines.push('· Día: …');
+    if (fr) {
+      var p = fr.split('|');
+      lines.push('· Franja: ' + p[0].toLowerCase() + ', de ' + fmtMin(+p[1]) + ' a ' + fmtMin(+p[2]));
+    } else lines.push('· Franja: …');
+    lines.push((nombre ? 'Soy ' + nombre + '. ' : '') + '¿Me confirmáis la hora? ¡Gracias!');
     return lines.join('\n');
   }
 
@@ -397,17 +440,24 @@ var NEGOCIO = {
     setT('barbero', checked('barbero') || 'Me da igual');
     var dk = daysBox.querySelector('input:checked');
     if (dk) {
+      var d = addDays(now(), +dk.getAttribute('data-k'));
       var k = +dk.getAttribute('data-k');
-      var d = addDays(now(), k);
-      var dn = DIAS[d.dow];
-      setT('dia', (k === 0 ? 'Hoy, ' + dn : k === 1 ? 'Mañana, ' + dn : dn.charAt(0).toUpperCase() + dn.slice(1)) + ' ' + d.d + ' ' + MESES_CORTO[d.mo - 1]);
+      setT('dia', (k === 0 ? 'Hoy, ' : k === 1 ? 'Mañana, ' : '') + DIAS[d.dow] + ' ' + d.d + ' ' + MESES_CORTO[d.mo - 1]);
     } else setT('dia', 'Sin elegir', true);
     var fr = checked('franja');
-    if (fr) setT('franja', franjaText(fr));
+    if (fr) { var p = fr.split('|'); setT('franja', p[0] + ' · ' + fmtMin(+p[1]) + '–' + fmtMin(+p[2])); }
     else setT('franja', 'Sin elegir', true);
-    setT('duracion', s ? s.min + ' min' : 'Sin elegir', !s);
-    setT('precio', s ? s.price + ' €' : 'Sin elegir', !s);
+    setT('duracion', s ? 'Duración · ' + s.min + ' min' : 'Elige un servicio');
+    setT('precio', s ? s.price + ' €' : '—');
     $('#wa-msg').textContent = buildMessage();
+  }
+
+  function bump() {
+    var p = $('.ticket-paper');
+    if (!p || reduceMotion) return;
+    p.classList.remove('is-bump');
+    void p.offsetWidth;
+    p.classList.add('is-bump');
   }
 
   function clearError(field) {
@@ -415,7 +465,7 @@ var NEGOCIO = {
     var m = map[field];
     if (!m) return;
     $('#' + m[0]).hidden = true;
-    m[1].closest('.field').classList.remove('is-invalid');
+    m[1].closest('.step-field').classList.remove('is-invalid');
     if (field === 'servicio') sel.removeAttribute('aria-invalid');
   }
 
@@ -427,7 +477,7 @@ var NEGOCIO = {
     ['servicio', 'dia', 'franja'].forEach(clearError);
     errors.forEach(function (e) {
       $('#' + e[1]).hidden = false;
-      e[2].closest('.field').classList.add('is-invalid');
+      e[2].closest('.step-field').classList.add('is-invalid');
       if (e[0] === 'servicio') sel.setAttribute('aria-invalid', 'true');
     });
     if (errors.length) {
@@ -435,7 +485,7 @@ var NEGOCIO = {
       var target = first[0] === 'servicio' ? sel : first[2].querySelector('input:not(:disabled)');
       if (!target && first[0] === 'franja') target = daysBox.querySelector('input:checked') || daysBox.querySelector('input:not(:disabled)');
       if (target) {
-        first[2].closest('.field').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        first[2].closest('.step-field').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         target.focus({ preventScroll: true });
       }
       return false;
@@ -444,7 +494,8 @@ var NEGOCIO = {
   }
 
   function goToBooking(focusEl) {
-    $('#reserva').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    var sec = $('#reserva');
+    sec.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
     if (focusEl) setTimeout(function () { focusEl.focus({ preventScroll: true }); }, reduceMotion ? 0 : 600);
   }
 
@@ -460,12 +511,13 @@ var NEGOCIO = {
       renderDays();
       renderSlots();
       updateTicket();
+      bump();
     });
     form.addEventListener('change', function (e) {
       var n = e.target.name;
       if (n === 'dia') { clearError('dia'); renderSlots(); }
       if (n === 'franja') clearError('franja');
-      if (n !== 'servicio') updateTicket();
+      if (n !== 'servicio') { updateTicket(); bump(); }
     });
     nameInput.addEventListener('input', updateTicket);
     form.addEventListener('submit', function (e) {
@@ -479,25 +531,30 @@ var NEGOCIO = {
       if (b) {
         sel.value = b.getAttribute('data-book');
         sel.dispatchEvent(new Event('change', { bubbles: true }));
-        goToBooking(daysBox.querySelector('input:checked') || daysBox.querySelector('input:not(:disabled)'));
+        var firstDay = daysBox.querySelector('input:checked') || daysBox.querySelector('input:not(:disabled)');
+        goToBooking(firstDay);
         return;
       }
       var br = e.target.closest('[data-barber]');
       if (br) {
         var r = form.querySelector('input[name="barbero"][value="' + br.getAttribute('data-barber') + '"]');
-        if (r) { r.checked = true; updateTicket(); }
-        goToBooking(sel.value ? daysBox.querySelector('input:not(:disabled)') : sel);
+        if (r) { r.checked = true; updateTicket(); bump(); }
+        goToBooking(sel.value ? (daysBox.querySelector('input:not(:disabled)')) : sel);
       }
     });
   }
 
   /* ---------- Arranque ---------- */
   applyConfig();
+  /* ResizeObserver mide tras el layout natural: sin reflujos forzados */
+  if ('ResizeObserver' in window) new ResizeObserver(syncBar).observe($('.demo-bar'));
+  else { syncBar(); window.addEventListener('resize', syncBar); }
   renderStatus();
-  initMenu();
-  initFloat();
+  initReveal();
+  initDock();
   initFilters();
   initBooking();
+  window.requestAnimationFrame(onScroll);
 
   if (!simulated) {
     setInterval(function () {
