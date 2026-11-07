@@ -80,20 +80,24 @@
   });
   window.matchMedia("(min-width: 860px)").addEventListener("change", (e) => { if (e.matches) cerrarNav(); });
 
+  const alScroll = () => cabecera.classList.toggle("con-sombra", window.scrollY > 8);
+  window.addEventListener("scroll", alScroll, { passive: true });
+  alScroll();
+
   /* ---------- Estado: abierto / cerrado ---------- */
   function textoEstado() {
     const ahora = new Date();
     const min = minutosAhora();
     const tramos = D.HORARIO[ahora.getDay()];
     for (const [a, c] of tramos) {
-      if (min >= aMin(a) && min < aMin(c)) return { abierto: true, texto: `Abierto ahora, hasta las ${c}` };
+      if (min >= aMin(a) && min < aMin(c)) return { abierto: true, texto: `Abierto ahora · hasta las ${c}` };
     }
     for (let i = 0; i < 8; i++) {
       const f = sumarDias(hoy0(), i);
       const t = D.HORARIO[f.getDay()].find(([a]) => i > 0 || aMin(a) > min);
       if (t) {
         const cuando = i === 0 ? "hoy" : i === 1 ? "mañana" : `el ${DIAS[f.getDay()]}`;
-        return { abierto: false, texto: `Cerrado. Abrimos ${cuando} a las ${t[0]}` };
+        return { abierto: false, texto: `Cerrado · abrimos ${cuando} a las ${t[0]}` };
       }
     }
     return { abierto: false, texto: "Cerrado" };
@@ -108,35 +112,16 @@
   pintarEstado();
   setInterval(pintarEstado, 60000);
 
-  /* ---------- Horario: tabla de la sección y resumen del pie ---------- */
-  const tramosTexto = (tramos, sep) => tramos.map(([a, c]) => `${a}\u00a0a\u00a0${c}`).join(sep);
-
+  /* ---------- Tabla de horario ---------- */
   (function pintarHorario() {
     const tbody = $("#tablaHorario tbody");
     const hoy = new Date().getDay();
     tbody.innerHTML = ORDEN_SEMANA.map((d) => {
       const tramos = D.HORARIO[d];
-      const txt = tramos.length ? tramosTexto(tramos, "<br>") : '<span class="cerrado">Cerrado</span>';
-      const marca = d === hoy ? ' <span class="horario__hoy">(hoy)</span>' : "";
-      return `<tr${d === hoy ? ' class="hoy"' : ""}><th scope="row">${capital(DIAS[d])}${marca}</th><td>${txt}</td></tr>`;
-    }).join("");
-  })();
-
-  // Agrupa días seguidos con el mismo horario: «Martes a jueves: 13:00 a 16:00»
-  (function pintarHorarioPie() {
-    const grupos = [];
-    ORDEN_SEMANA.forEach((d) => {
-      const txt = D.HORARIO[d].length ? tramosTexto(D.HORARIO[d], " y ") : "cerrado";
-      const ultimo = grupos[grupos.length - 1];
-      if (ultimo && ultimo.txt === txt) ultimo.dias.push(d);
-      else grupos.push({ txt, dias: [d] });
-    });
-    $("#pieHorario").innerHTML = grupos.map((g) => {
-      const n = g.dias.length;
-      const desde = capital(DIAS[g.dias[0]]);
-      const hasta = DIAS[g.dias[n - 1]];
-      const dias = n === 1 ? desde : n === 2 ? `${desde} y ${hasta}` : `${desde} a ${hasta}`;
-      return `<li>${dias}: ${g.txt}</li>`;
+      const txt = tramos.length
+        ? tramos.map(([a, c]) => `${a} – ${c}`).join("<br>")
+        : '<span class="cerrado">Cerrado</span>';
+      return `<tr${d === hoy ? ' class="hoy"' : ""}><th scope="row">${capital(DIAS[d])}</th><td>${txt}</td></tr>`;
     }).join("");
   })();
 
@@ -147,8 +132,8 @@
 
   function marcasMenu(op) {
     let m = "";
-    if (op.veg) m += '<span class="tag tag--veg tag--mini">Vegetariano</span>';
-    if (op.arroz) m += '<span class="tag tag--mini">Mín. 2 pers.</span>';
+    if (op.veg) m += `<span class="tag tag--veg tag--mini" title="Vegetariano">${ICONO("i-hoja")}<span class="visualmente-oculto">Vegetariano</span></span>`;
+    if (op.arroz) m += `<span class="tag tag--arroz tag--mini">mín. 2</span>`;
     return m ? `<span class="md__marcas">${m}</span>` : "";
   }
 
@@ -164,10 +149,13 @@
     if (!menu) {
       menuPanel.innerHTML = `
         <div class="md__cerrado">
-          <p class="md__dia">${etiqueta}</p>
-          <h3 class="md__titulo">Los lunes cerramos</h3>
-          <p>Es nuestro día de descanso. El martes volvemos con el menú del día.</p>
-          <button type="button" class="boton boton--secundario boton--peq" data-ver-dia="2">Ver el menú del martes</button>
+          <svg aria-hidden="true"><use href="#i-ola"/></svg>
+          <div>
+            <p class="md__dia">${etiqueta}</p>
+            <h3 class="md__titulo">Los lunes, descansamos</h3>
+            <p>La paellera también necesita su día de playa. Volvemos el martes con el menú de siempre.</p>
+            <button type="button" class="boton boton--contorno" data-ver-dia="2">Ver el menú del martes</button>
+          </div>
         </div>`;
       return;
     }
@@ -185,12 +173,14 @@
           <h3 class="md__titulo">${menu.titulo}</h3>
           ${menu.destacado ? `<p class="md__destacado">${menu.destacado}</p>` : ""}
         </div>
-        <div class="md__precio"><strong>${euros.format(menu.precio)}</strong><span>por persona, IVA incluido</span></div>
+        <div class="md__precio"><strong>${euros.format(menu.precio)}</strong><span>por persona, IVA incl.</span></div>
       </div>
       <div class="md__cursos">${cursos}</div>
       <div class="md__pie">
-        <p class="md__incluye">${menu.incluye}. El arroz del menú se sirve para toda la mesa, mínimo 2 personas.</p>
-        ${textoReserva ? `<button type="button" class="boton boton--peq" data-reservar-dia="${dia}">${textoReserva}</button>` : ""}
+        <p class="md__incluye">${ICONO("i-check")}${menu.incluye}. El arroz del menú se sirve para toda la mesa (mín. 2 personas).</p>
+        ${textoReserva ? `<button type="button" class="boton boton--azafran boton--peq" data-reservar-dia="${dia}">
+          ${textoReserva} ${ICONO("i-flecha")}
+        </button>` : ""}
       </div>`;
   }
 
@@ -259,24 +249,24 @@
 
   function tarjeta(p) {
     const marcas = [];
-    if (p.veg) marcas.push('<span class="tag tag--veg">Vegetariano</span>');
+    if (p.veg) marcas.push(`<span class="tag tag--veg">${ICONO("i-hoja")}Vegetariano</span>`);
     if (p.arroz) {
-      marcas.push('<span class="tag">Mín. 2 personas</span>');
-      marcas.push(`<span class="tag">${p.espera} min</span>`);
+      marcas.push(`<span class="tag tag--arroz">${ICONO("i-grupo")}Mín. 2 personas</span>`);
+      marcas.push(`<span class="tag tag--tiempo">${ICONO("i-reloj")}${p.espera} min</span>`);
     }
     const alerg = p.alergenos.length
-      ? p.alergenos.map((a, i) => (i ? ALERGENO[a].toLowerCase() : ALERGENO[a])).join(", ") + "."
-      : "Sin alérgenos declarados.";
+      ? p.alergenos.map((a) => `<li>${ALERGENO[a]}</li>`).join("")
+      : '<li class="sin">Sin alérgenos declarados</li>';
     return `
-      <article class="plato">
-        <div class="plato__fila">
+      <article class="plato${p.arroz ? " plato--arroz" : ""}">
+        <div class="plato__top">
           <h4 class="plato__nombre">${p.nombre}</h4>
-          <p class="plato__precio">${euros.format(p.precio)}</p>
+          <p class="plato__precio">${euros.format(p.precio)}${p.arroz ? "<small>por persona</small>" : ""}</p>
         </div>
         <p class="plato__desc">${p.desc}</p>
-        ${marcas.length ? `<p class="plato__marcas">${marcas.join("")}</p>` : ""}
-        <p class="plato__alergenos"><b>Alérgenos:</b> ${alerg}</p>
-        ${p.arroz ? `<button type="button" class="enlace-boton plato__encargar" data-encargar="${p.id}">Encargar al reservar</button>` : ""}
+        ${marcas.length ? `<div class="plato__marcas">${marcas.join("")}</div>` : ""}
+        <ul class="plato__alergenos" aria-label="Alérgenos">${alerg}</ul>
+        ${p.arroz ? `<button type="button" class="plato__encargar" data-encargar="${p.id}">Encargar al reservar ${ICONO("i-flecha")}</button>` : ""}
       </article>`;
   }
 
@@ -287,7 +277,7 @@
     $$(".chip", catEl).forEach((b) => {
       const c = b.dataset.cat;
       const n = visibles.filter((p) => c === "todo" || p.cat === c).length;
-      $(".chip__n", b).textContent = `(${n})`;
+      $(".chip__n", b).textContent = n;
       b.setAttribute("aria-pressed", String(c === estado.cat));
     });
 
@@ -304,9 +294,10 @@
       resumen.textContent = "Ningún plato cumple todos los filtros.";
       listado.innerHTML = `
         <div class="vacio">
-          <h3>No hay platos con estos filtros</h3>
-          <p>Prueba con otra categoría o quita algún filtro. También puedes preguntarnos al reservar, porque muchos platos se pueden adaptar.</p>
-          <button type="button" class="boton boton--secundario boton--peq" data-limpiar>Quitar filtros</button>
+          <svg aria-hidden="true"><use href="#i-ola"/></svg>
+          <h3>Aquí no hay nada que te podamos ofrecer</h3>
+          <p>Con estos filtros no queda ningún plato en esta sección. Prueba con otra categoría o quita algún filtro; y si lo prefieres, pregúntanos: adaptamos muchos platos.</p>
+          <button type="button" class="boton boton--contorno boton--peq" data-limpiar>Quitar filtros</button>
         </div>`;
       return;
     }
@@ -323,7 +314,7 @@
       <section class="grupo" aria-labelledby="g-${g.c.id}">
         <header class="grupo__cabecera">
           <h3 class="grupo__titulo" id="g-${g.c.id}">${g.c.nombre}</h3>
-          <p class="grupo__nota">${g.c.nota}${g.c.arroz ? " Precio por persona, mínimo 2." : ""}</p>
+          <p class="grupo__nota">${g.c.nota}</p>
         </header>
         <div class="grupo__rejilla">${g.platos.map(tarjeta).join("")}</div>
       </section>`).join("");
@@ -480,7 +471,7 @@
     if (n < 2) {
       arroz.value = "";
       arroz.disabled = true;
-      raciones.innerHTML = "<option>Raciones</option>";
+      raciones.innerHTML = "<option>—</option>";
       raciones.disabled = true;
       arrozAyuda.textContent = "Los arroces y fideuàs se preparan para un mínimo de 2 personas.";
       arrozAyuda.classList.add("aviso");
@@ -489,7 +480,7 @@
     arroz.disabled = false;
     arrozAyuda.classList.remove("aviso");
     if (!elegido) {
-      raciones.innerHTML = "<option>Raciones</option>";
+      raciones.innerHTML = "<option>—</option>";
       raciones.disabled = true;
       arrozAyuda.textContent = AYUDA_ARROZ;
       return;
@@ -500,7 +491,7 @@
     raciones.innerHTML = opts;
     raciones.disabled = false;
     const p = ARROCES.find((x) => x.id === elegido);
-    arrozAyuda.textContent = `Lo empezamos ${p.espera} minutos antes de vuestra hora para que esté listo al llegar.`;
+    arrozAyuda.textContent = `Lo empezamos a cocinar ${p.espera} min antes de vuestra hora: al sentaros, a la mesa.`;
   }
 
   function datos() {
@@ -525,16 +516,16 @@
   function mensaje(d, conHuecos) {
     const v = (x, hueco) => x || (conHuecos ? hueco : "");
     const lineas = [
-      "Hola, quería reservar mesa.",
+      "¡Hola, Arrossos del Marjal! Quería reservar mesa:",
       "",
-      `Día: ${v(d.fecha, "…")}`,
-      `Hora: ${v(d.hora, "…")}`,
-      `Personas: ${d.comensales}`
+      `📅 Día: ${v(d.fecha, "…")}`,
+      `🕐 Hora: ${v(d.hora, "…")}`,
+      `👥 Comensales: ${d.comensales} ${d.comensales === 1 ? "persona" : "personas"}`
     ];
-    if (d.zona) lineas.push(`Zona: ${d.zona}`);
-    if (d.arroz) lineas.push(`Arroz encargado: ${d.arroz}`);
-    if (d.notas) lineas.push(`Observaciones: ${d.notas}`);
-    lineas.push(`A nombre de: ${v(d.nombre, "…")}`, "", "Gracias.");
+    if (d.zona) lineas.push(`☀️ Zona: ${d.zona}`);
+    if (d.arroz) lineas.push(`🥘 Arroz encargado: ${d.arroz}`);
+    if (d.notas) lineas.push(`📝 Notas: ${d.notas}`);
+    lineas.push("", `A nombre de: ${v(d.nombre, "…")}`, "", "¡Gracias!");
     return lineas.join("\n");
   }
 
@@ -544,6 +535,8 @@
     // escapamos y marcamos los huecos pendientes
     const esc = texto.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     burbuja.innerHTML = esc.replace(/…/g, '<span class="pendiente">pendiente</span>');
+    const ahora = new Date();
+    burbuja.dataset.hora = `${pad(ahora.getHours())}:${pad(ahora.getMinutes())}`;
   }
 
   // eventos del formulario
@@ -585,7 +578,7 @@
     document.body.appendChild(enlace);
     enlace.click();
     enlace.remove();
-    ok.textContent = "Se ha abierto WhatsApp con tu mensaje. Envíalo y te confirmaremos la mesa en el mismo chat.";
+    ok.innerHTML = `${ICONO("i-check")}<span>¡Listo! Hemos abierto WhatsApp con tu mensaje. Envíalo y te confirmaremos la mesa en el mismo chat.</span>`;
     ok.hidden = false;
   });
 
@@ -614,17 +607,15 @@
   pintarHoras();
   pintarVista();
 
-  /* ---------- WhatsApp flotante en móvil ----------
-     Se oculta sobre el formulario de reserva (ya tiene su botón de WhatsApp)
-     y sobre la sección final de la oferta, para no confundir los dos números. */
+  /* ---------- CTA flotante en móvil ---------- */
   const cta = $("#ctaMovil");
   if ("IntersectionObserver" in window) {
     const visibles = new Set();
     const io = new IntersectionObserver((entradas) => {
       entradas.forEach((en) => { if (en.isIntersecting) visibles.add(en.target); else visibles.delete(en.target); });
       cta.classList.toggle("oculto", visibles.size > 0);
-    }, { threshold: 0 });
-    [$("#formReserva"), $("#oferta")].forEach((s) => io.observe(s));
+    }, { threshold: 0.05 });
+    [$("#inicio"), $("#reservar")].forEach((s) => io.observe(s));
   }
 
   $("#anio").textContent = new Date().getFullYear();
